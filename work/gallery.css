@@ -98,7 +98,7 @@ img.g-cell.wide { aspect-ratio: 16 / 7; }
 .g-cta h2 {
   font-family: var(--font-heading); font-size: clamp(32px, 4vw, 48px);
   font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
-  margin: 0 0 16px;
+  margin: 0 0 16px; color: #fff;
 }
 .g-cta p {
   font-family: var(--font-body); font-size: 16px; line-height: 1.5;
