@@ -415,13 +415,13 @@
   }
   .press .item { display: flex; align-items: center; flex-shrink: 0; }
   .press .item img {
-    height: 48px; width: auto; max-width: 160px;
+    height: 52px; width: auto; max-width: 180px;
     object-fit: contain;
-    opacity: 0.75;
-    filter: brightness(0) invert(1);
-    transition: opacity 200ms;
+    filter: grayscale(1) brightness(2.5) contrast(0.85);
+    opacity: 0.72;
+    transition: filter 220ms, opacity 220ms;
   }
-  .press .item img:hover { opacity: 1; }
+  .press .item img:hover { opacity: 1; filter: grayscale(0) brightness(1.1) contrast(1); }
   .press .item .dot {
     display: inline-block; width: 4px; height: 4px; border-radius: 999px;
     background: #2DD4BF;

@@ -1,55 +1,83 @@
 #!/usr/bin/env python3
 """
-Drop any logo PNG/JPG into assets/logos/ then run:
+Drop any logo PNG/JPG/WEBP into assets/logos/ then run:
     python3 process_logos.py
 
 Each image is:
-  1. Background-removed (white/light pixels made transparent)
-  2. Recoloured pure white (so logos show on the dark marquee band)
-  3. Saved as a transparent PNG, max 320px wide
+  1. Background removed by sampling corner colours (works on white, dark, or coloured backgrounds)
+  2. Original logo colours preserved (internal detail kept intact)
+  3. Saved as transparent PNG, max 320px on longest side
 """
 from pathlib import Path
+from collections import deque
 from PIL import Image
 import numpy as np
 
 LOGOS_DIR = Path(__file__).parent / "assets" / "logos"
-MAX_W = 320
+MAX_SIZE  = 320
+TOLERANCE = 38   # colour-distance threshold for background matching
+
+def corner_bg_color(data):
+    """Return the average colour of the four image corners."""
+    h, w = data.shape[:2]
+    samples = [data[0, 0, :3], data[0, w-1, :3], data[h-1, 0, :3], data[h-1, w-1, :3]]
+    return np.mean(samples, axis=0)
+
+def flood_remove(data, bg_rgb, tolerance):
+    """BFS flood-fill from all four corners, marking background pixels transparent."""
+    h, w = data.shape[:2]
+    visited = np.zeros((h, w), dtype=bool)
+    mask    = np.zeros((h, w), dtype=bool)
+
+    queue = deque()
+    for y, x in [(0, 0), (0, w-1), (h-1, 0), (h-1, w-1)]:
+        if not visited[y, x]:
+            visited[y, x] = True
+            queue.append((y, x))
+
+    while queue:
+        y, x = queue.popleft()
+        pixel = data[y, x, :3].astype(float)
+        dist  = np.sqrt(np.sum((pixel - bg_rgb) ** 2))
+        if dist <= tolerance:
+            mask[y, x] = True
+            for dy, dx in [(-1,0),(1,0),(0,-1),(0,1)]:
+                ny, nx = y+dy, x+dx
+                if 0 <= ny < h and 0 <= nx < w and not visited[ny, nx]:
+                    visited[ny, nx] = True
+                    queue.append((ny, nx))
+
+    result = data.copy()
+    result[mask, 3] = 0
+    return result
 
 def process(src: Path):
-    img = Image.open(src).convert("RGBA")
-    data = np.array(img, dtype=np.float32)
+    img  = src if isinstance(src, Image.Image) else Image.open(src)
+    img  = img.convert("RGBA")
+    data = np.array(img)
 
-    r, g, b, a = data[..., 0], data[..., 1], data[..., 2], data[..., 3]
+    # Only flood-remove background if image doesn't already have real transparency
+    alpha = data[:, :, 3]
+    has_transparency = (alpha < 200).sum() > (alpha.size * 0.05)
 
-    # Pixels that are already transparent stay transparent
-    # Pixels that are very light (background-ish) become transparent
-    lightness = (r + g + b) / 3
-    is_bg = (lightness > 230) & (a > 10)
+    if not has_transparency:
+        bg = corner_bg_color(data)
+        data = flood_remove(data, bg, TOLERANCE)
 
-    # Everything else becomes white
-    data[..., 0] = 255
-    data[..., 1] = 255
-    data[..., 2] = 255
+    result = Image.fromarray(data, "RGBA")
 
-    # Set alpha: transparent for background, opaque for logo pixels
-    new_alpha = np.where(is_bg, 0, a)
-    # Also fully transparent for already-transparent pixels
-    new_alpha = np.where(a < 10, 0, new_alpha)
-    data[..., 3] = np.clip(new_alpha, 0, 255)
-
-    result = Image.fromarray(data.astype(np.uint8), "RGBA")
-
-    # Resize to max width while keeping aspect ratio
+    # Resize so longest side ≤ MAX_SIZE
     w, h = result.size
-    if w > MAX_W:
-        result = result.resize((MAX_W, int(h * MAX_W / w)), Image.LANCZOS)
+    if max(w, h) > MAX_SIZE:
+        scale  = MAX_SIZE / max(w, h)
+        result = result.resize((int(w * scale), int(h * scale)), Image.LANCZOS)
 
     out = src.with_suffix(".png")
     result.save(out, "PNG", optimize=True)
     print(f"  ✓ {out.name}  ({result.size[0]}×{result.size[1]})")
 
 if __name__ == "__main__":
-    exts = {".png", ".jpg", ".jpeg", ".webp"}
+    exts  = {".png", ".jpg", ".jpeg", ".webp"}
     files = [f for f in LOGOS_DIR.iterdir() if f.suffix.lower() in exts]
     if not files:
         print("No images found in assets/logos/ — drop some in and re-run.")
