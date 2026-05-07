@@ -116,6 +116,7 @@
   .hero-bg { position: absolute; inset: 0; }
   .hero-frame { position: absolute; inset: 0; opacity: 0; transition: opacity 1200ms cubic-bezier(.2,0,0,1); }
   .hero-frame.is-active { opacity: 1; }
+  .hero-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-frame::after {
     content: "";
     position: absolute; inset: 0;
@@ -538,6 +539,95 @@
     footer .top { grid-template-columns: 1fr 1fr; }
   }
 
+  /* ---------- Scroll progress ---------- */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px;
+    background: #2DD4BF; z-index: 200;
+    transform-origin: 0 0; transform: scaleX(0);
+    transition: transform 80ms linear;
+  }
+
+  /* ---------- Hero parallax & entry ---------- */
+  .hero-frame img {
+    position: absolute; top: -10%; left: 0;
+    width: 100%; height: 120%;
+    object-fit: cover; display: block;
+    will-change: transform;
+  }
+  .hero-content {
+    animation: heroIn 900ms cubic-bezier(.2,0,0,1) 200ms both;
+  }
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-content { animation: none; }
+  }
+
+  /* ---------- Hero cursor glow ---------- */
+  .hero-cursor {
+    position: absolute; pointer-events: none; z-index: 1;
+    width: 360px; height: 360px; border-radius: 999px;
+    background: radial-gradient(circle, rgba(45,212,191,0.10) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: opacity 400ms;
+    opacity: 0;
+  }
+  .hero:hover .hero-cursor { opacity: 1; }
+
+  /* ---------- Portfolio card hover ---------- */
+  .pf-img { overflow: hidden; }
+  .pf-img img { transition: transform 700ms cubic-bezier(.2,0,0,1); }
+  .pf-card:hover .pf-img img { transform: scale(1.07); }
+  .pf-card .pf-meta { transition: transform 320ms cubic-bezier(.2,0,0,1); }
+  .pf-card:hover .pf-meta { transform: translateY(-4px); }
+  .pf-view {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0; z-index: 3;
+    width: 52px; height: 52px; border-radius: 999px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.35);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    transition: opacity 240ms cubic-bezier(.2,0,0,1), transform 240ms cubic-bezier(.2,0,0,1);
+  }
+  .pf-card:hover .pf-view {
+    opacity: 1; transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* ---------- About photo parallax ---------- */
+  .about-photo img { will-change: transform; transition: none; }
+
+  /* ---------- Pricing card hover ---------- */
+  .price-card {
+    transition: transform 220ms cubic-bezier(.2,0,0,1),
+                box-shadow 220ms cubic-bezier(.2,0,0,1);
+  }
+  .price-card:not(.price-card-feature):hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.10);
+  }
+  .price-card-feature {
+    transition: transform 220ms cubic-bezier(.2,0,0,1),
+                box-shadow 220ms cubic-bezier(.2,0,0,1);
+  }
+  .price-card-feature:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+  }
+
+  /* ---------- Nav active link ---------- */
+  .nav .link.is-active { color: #fff; }
+  .site-header.is-scrolled .nav .link.is-active { color: #0A0A0A; }
+
+  /* ---------- Button magnetic feel ---------- */
+  .btn { transition: background-color 180ms cubic-bezier(.2,0,0,1), border-color 180ms, color 180ms, transform 160ms cubic-bezier(.2,0,0,1), box-shadow 160ms; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
   /* ---------- Skip link ---------- */
   .skip {
     position: absolute; left: -9999px; top: 0;
@@ -550,6 +640,7 @@
 </head>
 <body>
 
+<div class="scroll-progress" aria-hidden="true"></div>
 <a href="#main" class="skip">Skip to content</a>
 
 <header class="site-header" id="siteHeader">
@@ -584,19 +675,26 @@
 <!-- ============== HERO ============== -->
 <section class="hero" id="top" aria-label="Hero">
   <div class="hero-bg" aria-hidden="true">
-    <div class="hero-frame frame-1 is-active"></div>
-    <div class="hero-frame frame-2"></div>
-    <div class="hero-frame frame-3"></div>
+    <div class="hero-frame frame-1 is-active">
+      <img src="photos/Football/Football-2.jpg" alt="">
+    </div>
+    <div class="hero-frame frame-2">
+      <img src="photos/Waterpolo/Waterpolo-2.jpg" alt="">
+    </div>
+    <div class="hero-frame frame-3">
+      <img src="photos/Motorsport/Motorsport-2.jpg" alt="">
+    </div>
     <div class="hero-frame frame-4">
-      <!-- Replace the placeholder div below with: <img class="photo" src="photos/hero/hero-4.jpg" alt=""> -->
-      <div class="photo-placeholder"><span>Drop hero photo · 2400×1600</span></div>
+      <img src="photos/Futsal/Futsal-2.jpg" alt="">
     </div>
   </div>
+  <div class="hero-cursor" aria-hidden="true"></div>
   <svg class="brackets" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path d="M0 6 V0 H6"/><path d="M94 0 H100 V6"/>
     <path d="M0 94 V100 H6"/><path d="M94 100 H100 V94"/>
   </svg>
   <div class="container">
+    <div class="hero-content">
     <div class="hero-eyebrow-row">
       <span class="label">Sports photojournalism · Malta</span>
       <span class="sport-rotator" aria-live="polite">
@@ -609,6 +707,7 @@
       <a class="btn btn-lg btn-primary-on-dark" href="#cta">Book a shoot <span class="arrow">→</span></a>
       <a class="btn btn-lg btn-secondary-on-dark" href="#work">See sample gallery</a>
     </div>
+    </div><!-- /hero-content -->
   </div>
   <div class="hero-meta" aria-hidden="true">
     <div class="hero-dots" id="heroDots">
@@ -632,35 +731,29 @@
       <a class="btn btn-secondary reveal" data-stagger="1" href="#work">Browse the full archive <span class="arrow">→</span></a>
     </div>
     <div class="grid">
-      <!-- To add a real photo: replace <div class="pf-img football"></div> with
-           <img class="pf-img" src="photos/work/football-cover.jpg" alt="Football match action"> -->
       <a class="pf-card reveal" href="work/football.html">
-        <div class="pf-img football"></div>
+        <div class="pf-img"><img src="photos/Football/Football-1.jpg" alt="Football match action"></div>
         <span class="pf-tag">Football</span>
-        <div class="pf-meta">
-          <h3 class="pf-title">Equaliser, 78th minute.</h3>
-        </div>
+        <div class="pf-meta"><h3 class="pf-title">Equaliser, 78th minute.</h3></div>
+        <div class="pf-view" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       </a>
       <a class="pf-card reveal" data-stagger="1" href="work/waterpolo.html">
-        <div class="pf-img waterpolo"></div>
+        <div class="pf-img"><img src="photos/Waterpolo/Waterpolo-1.jpg" alt="Waterpolo match action"></div>
         <span class="pf-tag">Waterpolo</span>
-        <div class="pf-meta">
-          <h3 class="pf-title">Behind the lane line.</h3>
-        </div>
+        <div class="pf-meta"><h3 class="pf-title">Behind the lane line.</h3></div>
+        <div class="pf-view" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       </a>
       <a class="pf-card reveal" data-stagger="2" href="work/motorsport.html">
-        <div class="pf-img motorsport"></div>
+        <div class="pf-img"><img src="photos/Motorsport/Motorsport-1.jpg" alt="Motorsport trackside"></div>
         <span class="pf-tag">Motorsport</span>
-        <div class="pf-meta">
-          <h3 class="pf-title">Qualifying, gravel.</h3>
-        </div>
+        <div class="pf-meta"><h3 class="pf-title">Qualifying, gravel.</h3></div>
+        <div class="pf-view" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       </a>
       <a class="pf-card reveal" data-stagger="3" href="work/futsal.html">
-        <div class="pf-img futsal"></div>
+        <div class="pf-img"><img src="photos/Futsal/Futsal-1.jpg" alt="Futsal indoor action"></div>
         <span class="pf-tag">Futsal</span>
-        <div class="pf-meta">
-          <h3 class="pf-title">Two minutes, three goals.</h3>
-        </div>
+        <div class="pf-meta"><h3 class="pf-title">Two minutes, three goals.</h3></div>
+        <div class="pf-view" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       </a>
     </div>
   </div>
@@ -670,8 +763,7 @@
 <section class="about" id="about" aria-label="About Nicholas Falzon">
   <div class="container">
     <div class="about-photo reveal">
-      <!-- Replace the placeholder below with: <img src="photos/about/portrait.jpg" alt="Nicholas Falzon, sports photographer"> -->
-      <div class="photo-placeholder"><span>Drop portrait · 1200×1500</span></div>
+      <img src="photos/about/portrait.jpg" alt="Nicholas Falzon, sports photographer">
     </div>
     <div class="about-copy">
       <span class="eyebrow reveal">About</span>
@@ -850,25 +942,34 @@
 </footer>
 
 <script>
-  // Sticky header
-  const header = document.getElementById('siteHeader');
-  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Reveal on scroll
+  // ── Sticky header ──────────────────────────────────────────────
+  const header = document.getElementById('siteHeader');
+  const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScrollHeader, { passive: true });
+  onScrollHeader();
+
+  // ── Scroll progress bar ────────────────────────────────────────
+  const progressBar = document.querySelector('.scroll-progress');
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${Math.min(window.scrollY / max, 1)})`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  // ── Reveal on scroll ───────────────────────────────────────────
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  }, { threshold: 0.10, rootMargin: '0px 0px -6% 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  // Hero cross-fade
+  // ── Hero cross-fade ────────────────────────────────────────────
   const frames = document.querySelectorAll('.hero-frame');
   const dots   = document.querySelectorAll('#heroDots .dot');
   let frameIdx = 0;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
     setInterval(() => {
       frames[frameIdx].classList.remove('is-active');
@@ -879,7 +980,7 @@
     }, 5400);
   }
 
-  // Sport-name rotator
+  // ── Sport-name rotator ─────────────────────────────────────────
   const words = document.querySelectorAll('.sport-rotator .word');
   let wordIdx = 0;
   if (!reduceMotion) {
@@ -892,22 +993,72 @@
     words.forEach((w, i) => w.classList.toggle('is-active', i === 0));
   }
 
-  // Press marquee — duplicated for seamless loop
+  // ── Hero parallax ──────────────────────────────────────────────
+  if (!reduceMotion) {
+    const heroImages = document.querySelectorAll('.hero-frame img');
+    const aboutPhoto = document.querySelector('.about-photo img');
+    const onParallax = () => {
+      const y = window.scrollY;
+      heroImages.forEach((img) => {
+        img.style.transform = `translateY(${y * 0.22}px)`;
+      });
+      if (aboutPhoto) {
+        const rect = aboutPhoto.closest('.about-photo').getBoundingClientRect();
+        const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        aboutPhoto.style.transform = `translateY(${(progress - 0.5) * 40}px)`;
+      }
+    };
+    window.addEventListener('scroll', onParallax, { passive: true });
+    onParallax();
+  }
+
+  // ── Hero cursor glow ───────────────────────────────────────────
+  if (!reduceMotion) {
+    const heroCursor = document.querySelector('.hero-cursor');
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      heroCursor.style.left = (e.clientX - rect.left) + 'px';
+      heroCursor.style.top  = (e.clientY - rect.top)  + 'px';
+    });
+  }
+
+  // ── Active nav section highlight ───────────────────────────────
+  const sections  = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav .link');
+  const onNavScroll = () => {
+    let current = '';
+    sections.forEach((sec) => {
+      if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+    });
+    navLinks.forEach((link) => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + current);
+    });
+  };
+  window.addEventListener('scroll', onNavScroll, { passive: true });
+  onNavScroll();
+
+  // ── Press marquee ──────────────────────────────────────────────
   const pressItems = [
-    { pub: 'Times of Malta',       lbl: 'Press archive' },
-    { pub: 'MaltaToday',           lbl: 'Sport feature' },
+    { pub: 'Times of Malta',        lbl: 'Press archive' },
+    { pub: 'MaltaToday',            lbl: 'Sport feature' },
     { pub: 'The Malta Independent', lbl: 'Match report imagery' },
-    { pub: 'SportMalta',           lbl: 'Federation feature' },
-    { pub: 'MFA',                  lbl: 'Match programme contributor' },
-    { pub: 'ASA Malta',            lbl: 'Season feature' },
-    { pub: 'Lovin Malta',          lbl: 'Editorial' },
-    { pub: 'TVM Sport',            lbl: 'Stills credit' },
+    { pub: 'SportMalta',            lbl: 'Federation feature' },
+    { pub: 'MFA',                   lbl: 'Match programme contributor' },
+    { pub: 'ASA Malta',             lbl: 'Season feature' },
+    { pub: 'Lovin Malta',           lbl: 'Editorial' },
+    { pub: 'TVM Sport',             lbl: 'Stills credit' },
   ];
   const track = document.getElementById('pressTrack');
   const renderPress = (list) => list.map((it) =>
     `<div class="item"><span class="pub">${it.pub}</span><span class="dot"></span><span class="lbl">${it.lbl}</span></div>`
   ).join('');
   track.innerHTML = renderPress(pressItems) + renderPress(pressItems);
+
+  // Pause marquee on hover
+  const marqueeTrack = document.querySelector('.press .track');
+  marqueeTrack.addEventListener('mouseenter', () => marqueeTrack.style.animationPlayState = 'paused');
+  marqueeTrack.addEventListener('mouseleave', () => marqueeTrack.style.animationPlayState = 'running');
 </script>
 
 </body>
