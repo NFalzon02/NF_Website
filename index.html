@@ -78,8 +78,67 @@
   .nav-icons a { display: inline-flex; }
   .nav-icons svg { width: 18px; height: 18px; }
   .nav-cta { margin-left: 4px; }
+
+  /* ---------- Hamburger ---------- */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 36px; height: 36px; cursor: pointer;
+    background: none; border: none; padding: 2px; flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 1.5px;
+    background: #fff; border-radius: 2px;
+    transition: transform 220ms cubic-bezier(.2,0,0,1), opacity 180ms;
+  }
+  .site-header.is-scrolled .nav-hamburger span { background: #0A0A0A; }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ---------- Mobile menu ---------- */
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 45;
+    background: #0A0A0A;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 40px 48px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 260ms cubic-bezier(.2,0,0,1);
+  }
+  .mobile-menu.is-open { opacity: 1; pointer-events: all; }
+  .mobile-menu a {
+    font-family: var(--font-heading); font-size: clamp(28px, 8vw, 44px);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    padding: 14px 0; border-bottom: 1px solid #1a1a1a;
+    display: block;
+    transition: color 160ms;
+  }
+  .mobile-menu a:first-child { border-top: 1px solid #1a1a1a; }
+  .mobile-menu a:hover { color: #2DD4BF; }
+  .mobile-menu .mobile-sub {
+    display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px;
+  }
+  .mobile-menu .mobile-sub a {
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.5); border: none; padding: 0;
+    letter-spacing: 0.04em;
+  }
+  .mobile-menu .mobile-sub a:hover { color: #fff; }
+
   @media (max-width: 720px) {
-    .nav .link { display: none; }
+    .nav .link, .nav-icons, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ---------- Mobile layout fixes ---------- */
+  @media (max-width: 480px) {
+    .portfolio .grid { grid-template-columns: 1fr 1fr; }
+    footer .top { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: clamp(38px, 11vw, 56px); }
+  }
+  @media (max-width: 380px) {
+    .portfolio .grid { grid-template-columns: 1fr; }
+    footer .top { grid-template-columns: 1fr; }
   }
 
   /* ---------- Buttons ---------- */
@@ -110,7 +169,7 @@
     color: #fff;
     background: #0A0A0A;
     overflow: hidden;
-    display: flex; align-items: flex-end;
+    display: flex; align-items: center;
     padding: 96px 0 64px;
   }
   .hero-bg { position: absolute; inset: 0; }
@@ -267,7 +326,11 @@
     position: absolute; top: 14px; left: 14px;
     font-family: var(--font-body); font-size: 10px; font-weight: 600;
     letter-spacing: 0.075em; text-transform: uppercase;
-    color: #2DD4BF; z-index: 2;
+    color: #fff; z-index: 2;
+    background: rgba(0,0,0,0.52);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    padding: 4px 10px; border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.15);
   }
   .pf-card .pf-meta {
     position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 2;
@@ -666,9 +729,25 @@
         </a>
       </span>
       <a class="btn btn-primary nav-cta" href="#cta">Book a shoot <span class="arrow">→</span></a>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#work" class="mobile-link">Work</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#pricing" class="mobile-link">Pricing</a>
+  <a href="https://shop.nfalzon.com" class="mobile-link" target="_blank" rel="noopener">Shop</a>
+  <a href="#cta" class="mobile-link">Book a shoot</a>
+  <div class="mobile-sub">
+    <a href="https://www.facebook.com/NFalzonPhotos" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://instagram.com/nfalzon_photos" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:nfalzonphotos@gmail.com">Email</a>
+  </div>
+</div>
 
 <main id="main">
 
@@ -725,8 +804,8 @@
   <div class="container">
     <div class="portfolio-head">
       <div class="reveal">
-        <span class="eyebrow">Selected work · 2025/26 season</span>
-        <h2>Three sports.<br>Four federations.<br>One season.</h2>
+        <span class="eyebrow">Selected work · Multi-season archive</span>
+        <h2>Four sports.<br>Four federations.<br>Every season.</h2>
       </div>
       <a class="btn btn-secondary reveal" data-stagger="1" href="#work">Browse the full archive <span class="arrow">→</span></a>
     </div>
@@ -847,7 +926,8 @@
       class="contact-form reveal"
       id="contact"
       data-stagger="1"
-      onsubmit="event.preventDefault(); this.querySelector('.form-success').hidden = false; this.querySelector('.form-fields').hidden = true;"
+      action="https://api.web3forms.com/submit"
+      method="POST"
     >
       <div class="form-fields">
         <div class="field">
@@ -883,7 +963,10 @@
           <label for="f-msg">Brief <span class="opt">(venue, kick-off, what you need)</span></label>
           <textarea id="f-msg" name="message" rows="4" required></textarea>
         </div>
-        <button class="btn btn-lg btn-primary-on-dark" type="submit">Send enquiry <span class="arrow">→</span></button>
+        <input type="hidden" name="access_key" value="abc5bad4-f8d7-48ca-b17c-8439660be725">
+        <input type="hidden" name="subject" value="New enquiry — NF Photography">
+        <input type="hidden" name="from_name" value="NF Photography Website">
+        <button class="btn btn-lg btn-primary-on-dark" type="submit" id="submitBtn">Send enquiry <span class="arrow">→</span></button>
         <p class="form-note">Or email directly: <a href="mailto:nfalzonphotos@gmail.com">nfalzonphotos@gmail.com</a></p>
       </div>
       <div class="form-success" hidden>
@@ -1059,6 +1142,47 @@
   const marqueeTrack = document.querySelector('.press .track');
   marqueeTrack.addEventListener('mouseenter', () => marqueeTrack.style.animationPlayState = 'paused');
   marqueeTrack.addEventListener('mouseleave', () => marqueeTrack.style.animationPlayState = 'running');
+
+  // ── Mobile hamburger ───────────────────────────────────────────
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  function toggleMenu(open) {
+    hamburgerBtn.classList.toggle('is-open', open);
+    mobileMenu.classList.toggle('is-open', open);
+    mobileMenu.setAttribute('aria-hidden', !open);
+    hamburgerBtn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburgerBtn.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // ── Contact form — Formspree fetch submit ──────────────────────
+  const contactForm = document.getElementById('contact');
+  const submitBtn   = document.getElementById('submitBtn');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' },
+      });
+      if (res.ok) {
+        contactForm.querySelector('.form-success').hidden = false;
+        contactForm.querySelector('.form-fields').hidden = true;
+      } else {
+        throw new Error('server error');
+      }
+    } catch {
+      submitBtn.textContent = 'Send enquiry →';
+      submitBtn.disabled = false;
+      alert('Something went wrong — please email nfalzonphotos@gmail.com directly.');
+    }
+  });
 </script>
 
 </body>
