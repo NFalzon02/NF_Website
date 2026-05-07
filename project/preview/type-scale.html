@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 20px; }
+  .row { display: grid; grid-template-columns: 80px 60px 1fr; gap: 16px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--color-border); }
+  .row:last-child { border-bottom: none; }
+  .tok { font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-text-subtle); }
+  .px { font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-text-muted); }
+  .specimen { font-family: var(--font-heading); font-weight: 600; color: var(--color-text); line-height: 1.1; letter-spacing: -0.02em; }
+  .body-spec { font-family: var(--font-body); font-weight: 400; line-height: 1.5; }
+</style>
+</head><body>
+<div class="card-root">
+  <div>
+    <div class="row"><span class="tok">--text-h1</span><span class="px">48px</span><span class="specimen" style="font-size:38px">Behind the lane line</span></div>
+    <div class="row"><span class="tok">--text-h2</span><span class="px">36px</span><span class="specimen" style="font-size:28px">Three sports, one season</span></div>
+    <div class="row"><span class="tok">--text-h3</span><span class="px">30px</span><span class="specimen" style="font-size:24px">Pitchside, poolside, trackside</span></div>
+    <div class="row"><span class="tok">--text-h4</span><span class="px">24px</span><span class="specimen" style="font-size:20px; letter-spacing:-0.01em">Section heading</span></div>
+    <div class="row"><span class="tok">--text-lead</span><span class="px">18px</span><span class="body-spec" style="font-size:15px; color:var(--color-text-muted)">Lead paragraph — intro copy after a section heading.</span></div>
+    <div class="row"><span class="tok">--text-body</span><span class="px">16px</span><span class="body-spec" style="font-size:13px">Default body text for paragraphs and most reading.</span></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,471 @@
+NF Photography — Brand Guidelines
+A working reference for everything visual: the mark, the colour, the type, the tone.
+Built for one photographer; designed to last as the work grows.
+Version 1.0 Date May 2026 Owner Nicholas Falzon · Malta Contact nfalzon.com ·
+@nfalzon_photos
+Contents
+1. The brand
+2. Voice & values
+3. The logo
+4. Colour
+5. Typography
+6. Buttons
+7. Voice & tone in writing
+8. Quick reference
+This document is a working reference. It will evolve as the brand does. When something
+written here stops being true of the work, update the document — don't keep the work
+consistent with an outdated rule.
+
+-- 1 of 21 --
+
+1. The brand
+Overview
+NF Photography is the Malta-based sports photojournalism practice of Nicholas Falzon,
+working with clubs, athletes, federations, and sponsors. The business documents live sport
+— football, futsal, motorsport, waterpolo, and more — and delivers published-quality
+imagery that clubs and athletes can actually use to grow their reach, win sponsors, and
+build their profile.
+Where most local sports photography is volunteer-grade or generic, NF Photography brings
+the discipline of photojournalism: serious work, filed on deadline, across the sports most
+Maltese photographers won't or can't cover.
+Positioning statement
+The working sports photojournalist Maltese clubs, athletes, and federations can
+actually book — covering football, futsal, motorsport, and waterpolo with published-
+quality imagery delivered on a journalist's timeline.
+Two names, used on purpose
+The brand operates under two coordinated names:
+Name 	Use case
+NF
+Photography
+Business name. Invoices, contracts, proposals, watermarks, sponsorship decks,
+website footer, social handles.
+Nicholas
+Falzon
+Personal name. About page, newspaper credits, athlete and club conversations,
+email signatures, press features.
+
+-- 2 of 21 --
+
+Clubs and federations hire a business under contract; athletes and journalists trust a person
+on the sideline. Running both names in parallel lets the brand serve B2B credibility and
+B2C relationship-building at the same time.
+Tagline
+Primary tagline
+Pitchside, poolside, trackside.
+Three words signalling multi-sport range, naming the actual environments NF
+Photography works in. It's the hero line on the website, social bios, and proposal covers —
+and impossible for competitors to credibly copy unless they shoot all three.
+Supporting line (longer-form copy)
+Sport, captured properly.
+Used in proposals, manifestos, and the back-end of an "about" page. Quietly confrontational
+— implies the alternative (most local sports photography) is improperly done, which is the
+brand's market opening.
+Target market
+Primary clients (B2B): Maltese football and futsal clubs, waterpolo clubs and the
+national federation, motorsport teams and event promoters, sports federations
+needing season-long media coverage.
+Secondary clients: Individual athletes building personal brands, sponsors needing
+match-day imagery, sports journalists and local press.
+Geography: Malta + occasional regional travel.
+Positioning tier: Mid-tier professional.
+
+-- 3 of 21 --
+
+2. Voice & values
+Core values
+Four values, each defendable in a real client conversation. They pair naturally: Craft +
+Speed (the product), Range + Trust (the relationship).
+01 · Craft
+Newspaper-grade quality on every shoot. Lighting, composition, colour, and edit are
+intentional — never spray-and-pray. The benchmark is publishable, not "good enough for
+socials."
+02 · Speed
+Same-day social-ready edits. Full galleries within 48 hours. In sport, late media is dead
+media — turnaround is part of the product.
+03 · Range
+Football, futsal, motorsport, waterpolo, and beyond. Range is a service promise: multi-sport
+clubs and federations can hire one trusted photographer instead of three.
+04 · Trust
+Reliable delivery, clean licensing, professional conduct around athletes, parents,
+journalists, and sponsors. Boring on paper; decisive in winning repeat contracts.
+Personality
+A sports photojournalist who takes the work seriously and knows how to get it done.
+NF Photography is not a creative-for-hire, a content creator, or a hobbyist with a camera. It
+is a working photojournalist running a business — a discipline with its own standards,
+posture, and history. The brand inherits all of that.
+
+-- 4 of 21 --
+
+Dial 	Setting
+Confidence Serious and quiet. The work, the press credits, and the track record speak. No self-
+promotion theatre.
+Tone 	Photojournalistic — observational, factual, sport-fluent. Reports the moment;
+doesn't dramatise it.
+Posture 	Professional. Shows up early, shoots through the full match, files on deadline. No
+excuses, no drama, no diva.
+Spotlight 	On the sport and the athlete. The photojournalist documents; he is never the story.
+Aesthetic 	Documentary-modern. Editorial-grade. Built for the back page of a paper, not for a
+wedding album.
+Reliability The defining trait. A photojournalist's reputation lives or dies on whether the file
+lands on time.
+What the brand is not: a creative agency, a "visual storyteller," a content shop, a brand-
+experience studio, or a lifestyle photographer who also shoots sport. It is a sports
+photojournalist — and the brand voice should sound like one.
+3. The logo
+The mark
+The logo is the existing NF Photography monogram framed by four corner brackets — a
+reference to the camera viewfinder and the editorial crop mark. The frame signals
+"photographer" without spelling it out.
+
+-- 5 of 21 --
+
+Master file: nf-logo-with-frame-a-symmetric.png (520 × 520 px)
+Brackets-only overlay: nf-frame-brackets-overlay.svg (drop onto your real vector
+logo file in Illustrator or Figma)
+Variants
+White-on-dark (primary) — for use on photography, dark backgrounds, social tiles
+Black-on-light — for use on white surfaces, print, documents
+Usage rules
+Always
+Keep clear space around the logo equal to the height of the "N" on all sides
+Use white-on-dark on photography or dark backgrounds; black-on-light on white
+Output as vector wherever possible (PDF, SVG); use raster (PNG) only for screens
+Never
+Don't recolour the logo in arbitrary brand colours — only black, white, or single-tone
+teal/navy from the palette
+Don't add drop shadows, glows, outlines, or effects
+Don't stretch, skew, or rotate
+Don't crowd it: respect the clear space rule
+
+-- 6 of 21 --
+
+Minimum sizes
+Application 	Minimum
+width
+Notes
+Full lockup (with PHOTOGRAPHY
+wordmark)
+80 px / 25 mm 	Below this, wordmark becomes
+illegible
+Icon-only (NF + brackets) 	24 px / 8 mm 	For favicons, watermarks, profile
+avatars
+Print and large display 	No upper limit Always export from vector source
+Watermark
+Use the icon-only version (NF + brackets, no PHOTOGRAPHY wordmark) for image
+watermarks. Position bottom-right at 2–4% of image width. Subtle white at low opacity is
+the default; full-strength only when the licence requires high visibility.
+4. Colour
+Philosophy
+Black is the foundation. Teal is the brand accent (energy, freshness). Navy is the brand
+depth (authority, editorial weight). Together they give the brand a layered voice that single-
+accent systems can't reach.
+All colours below are WCAG AA-compliant for their stated use. Status colours (success,
+warning, error) are kept neutral and conventional — they're for UI feedback, not brand
+expression.
+
+-- 7 of 21 --
+
+Brand colours
+Foundation Black
+Hex: #0A0A0A
+Token: neutral-950
+Use: The brand's anchor. Logo background, primary surfaces in inverted contexts,
+default action button. Reserved over pure #000000 because it's slightly softer on
+screen.
+Brand Teal
+Hex: #14B8A6
+Token: teal-500
+Use: The brand accent. Hero displays, dark sections, decorative accents. Reads as
+energy and freshness.
+On light backgrounds: step to teal-700 	#0F766E for text and teal-600
+#0D9488 for fills (the brand teal itself fails AA contrast on white)
+Brand Navy
+Hex: #1E3A8A
+Token: navy-900
+Use: The brand depth. Editorial heading colour, feature section backgrounds,
+secondary identity expression. Reads as authority and considered weight.
+In dark mode: feature surfaces use navy-700 	#1D4ED8 to stand out from the page.
+
+-- 8 of 21 --
+
+Three usage patterns
+The system supports three distinct visual moods. Most pages will mix them.
+Pattern 	Mood 	Use for
+1 · Default Black on white with occasional teal
+accents
+Portfolio galleries, services pages, blog posts,
+contact forms
+2 ·
+Editorial
+Navy heading on white, neutral
+body, teal inline accent
+About pages, manifesto sections, mission
+statements, editorial headlines
+3 · Feature Navy section with white text and
+light teal accent
+Press blocks, sponsorship sections, hero
+callouts, season-stat moments
+Key semantic tokens
+These are the tokens you reference in components. The full palette ramps (50–950) for each
+colour family are defined as raw tokens in nf-color-system.css .
+
+-- 9 of 21 --
+
+Token 	Light 	Dark 	Use
+--color-bg 	#FFFFFF 	#0A0A0A Page background
+--color-text 	#171717 	#FAFAFA Body, default headings
+--color-text-muted 	#404040 	#D4D4D4 Secondary copy
+--color-text-subtle 	#737373 	#A3A3A3 Captions, metadata
+--color-text-accent 	#0F766E 	#2DD4BF Teal text — accent in copy
+--color-text-secondary 	#1E3A8A 	#93C5FD Navy text — editorial headings
+--color-fill-accent 	#0D9488 	#14B8A6 Teal fills — buttons, badges, dots
+--color-bg-feature 	#1E3A8A 	#1D4ED8 Navy section backgrounds
+--color-text-success 	#15803D 	#4ADE80 Success status
+--color-text-warning 	#B45309 	#FCD34D Warning status
+--color-text-error 	#DC2626 	#F87171 Error status
+Status colour palette
+Used only for UI feedback (form errors, success messages, alerts) — never for brand
+expression.
+
+-- 10 of 21 --
+
+Status 	Default fill 	Light text 	Dark text
+Success 	#16A34A (green-600) 	#15803D 	#4ADE80
+Warning 	#F59E0B (amber-500) 	#B45309 	#FCD34D
+Error 	#EF4444 (rose-500) 	#DC2626 	#F87171
+5. Typography
+The pairing
+Two fonts, both free on Google Fonts, both loaded as variable fonts (one file each, full
+weight range).
+Role 	Font 	Weights 	Used for
+Headings 	Space Grotesk 	400–700 	h1–h6, display, eyebrows
+Body 	Inter 	400–700 	body, lead, small, caption, buttons
+Why this pairing: Space Grotesk is a contemporary geometric grotesk with subtle
+character — distinctive enough to give headlines presence, restrained enough to feel
+professional. Inter is the gold standard for screen body text — hugely legible, neutral but
+not sterile. Together: Space Grotesk gives the brand its voice in big moments; Inter does the
+heavy lifting of actual reading.
+Loading:
+html
+
+-- 11 of 21 --
+
+Type scale
+A 1.25 (minor third) modular scale, anchored on 16px body. Tight enough to feel refined
+and editorial, wide enough to give clear hierarchy.
+Token 	rem 	px 	Use
+--text-display 	3.75rem 	60px 	Hero headings, poster moments
+--text-h1 	3rem 	48px 	Page heading
+--text-h2 	2.25rem 	36px 	Major section heading
+--text-h3 	1.875rem 	30px 	Section heading
+--text-h4 	1.5rem 	24px 	Sub-section heading
+--text-h5 	1.25rem 	20px 	Minor heading
+--text-h6 	1.125rem 	18px 	Smallest heading
+--text-lead 	1.125rem 	18px 	Lead paragraph, intro copy
+--text-body 	1rem 	16px 	Default body
+--text-small 	0.875rem 	14px 	Meta, secondary, footnotes
+--text-caption 	0.75rem 	12px 	Photo credits, fine print
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Gro
+
+-- 12 of 21 --
+
+On screens narrower than 640px, the largest sizes ( display , h1 , h2 , h3 ) automatically
+shrink so headlines don't overflow on mobile.
+Line heights & letter spacing
+Underlying principle: as text gets bigger, tracking gets tighter and line height gets
+shorter.
+Token 	Value 	Used on
+--leading-tight 	1.1 	Display, h1, h2
+--leading-snug 	1.25 	h3, h4, h5, h6
+--leading-normal 	1.5 	Body, lead
+--leading-relaxed 	1.625 	Long-form reading
+--tracking-tighter 	-0.025em 	Display, h1
+--tracking-tight 	-0.015em 	h2, h3
+--tracking-normal 	0 	Default
+--tracking-wide 	0.075em 	Eyebrow / overline
+Heading weight rule
+Default heading weight is 600 (semibold), not 700 (bold). Space Grotesk at 600 already
+carries plenty of presence — going bold makes it feel heavy-handed for a brand whose
+voice is meant to be quietly confident. Use 700 only for display/hero moments where extra
+impact is needed.
+
+-- 13 of 21 --
+
+Eyebrow pattern
+The single highest-leverage editorial layout move you can make:
+Use this on every major page section — about, services, portfolio category headers, press
+features.
+6. Buttons
+Three variants, one geometry
+Hierarchy is built on contrast against the page, not colour. Brand colours stay reserved for
+accents and brand moments, not for asking the user to click.
+Variant 	Default appearance Use for
+Primary 	Black fill, white text The single most important action on a section. Booking,
+submitting, confirming. One per section, never two.
+Secondary Transparent, neutral
+border
+An alternative to a primary. "View portfolio" next to "Book a
+shoot."
+Ghost 	Transparent, no
+border
+Cancels, skips, less important inline actions. Looks clickable
+without shouting.
+PRESS · WATERPOLO 	← eyebrow (caption size, uppercase, tracked, teal)
+Behind the lane line. ← heading (h1 or h2)
+A season covering... 	← lead paragraph
+
+-- 14 of 21 --
+
+States
+State 	Trigger 	Visual change
+Default At rest 	Variant's defined colours
+Hover 	Cursor over 	Background shifts (primary darkens; secondary fills subtly;
+ghost fills subtly)
+Active 	Mouse down 	Brief return toward default (primary) or deeper fill (secondary,
+ghost)
+Focus 	Keyboard tab 	2px outline ring, 2px offset
+Disabled disabled
+attribute
+40% opacity, cursor: not-allowed
+Sizes
+Size 	Padding 	Font size 	Total height
+.btn-sm 	6px / 14px 	12px 	32px
+(default) 	10px / 20px 	14px 	40px
+.btn-lg 	14px / 28px 	16px 	48px
+HTML usage
+html
+
+-- 15 of 21 --
+
+Hierarchy rule
+✅ Good — one primary, secondary as alternative, ghost for "I changed my mind":
+[Book a shoot] [View portfolio] Cancel
+❌ Bad — two primaries compete:
+[Book a shoot] [View portfolio]
+❌ Bad — three secondaries with no hierarchy:
+[Book] [Portfolio] [Contact]
+States are deliberately quiet — hover shifts background only. No drop shadows, no scale
+transforms, no upward translate. Photojournalist brands don't bounce.
+<!-- Primary CTA -->
+<button class="btn btn-primary">Book a shoot</button>
+<!-- Secondary, paired next to a primary -->
+<button class="btn btn-primary">Book this package</button>
+<button class="btn btn-secondary">See sample gallery</button>
+<!-- Ghost, for low-emphasis tertiary actions -->
+<button class="btn btn-ghost">Cancel</button>
+<!-- Sizes and modifiers -->
+<button class="btn btn-primary btn-sm">Small</button>
+<button class="btn btn-primary btn-block">Full width</button>
+<!-- Disabled -->
+<button class="btn btn-primary" disabled>Sending…</button>
+
+-- 16 of 21 --
+
+7. Voice & tone in writing
+Always
+Direct. Say what happened, not how it felt.
+Sport-fluent. Use the actual terminology of each sport ("78th minute", "qualifying
+session", "lane line", "third period").
+Athlete-respectful. The athlete is always the hero, never the photographer.
+Confident without claiming. The work and the press credits do the boasting.
+Never
+"Capturing moments that last a lifetime."
+"Passionate about my craft."
+Generic adjectives like "stunning," "amazing," "beautiful."
+Photographer-as-hero language.
+Exclamation marks for emphasis.
+Examples — Do / Avoid
+✅ Do 	❌ Avoid
+Equaliser, 78th minute. Hibernians 1–1
+Floriana.
+Capturing the raw emotion of a beautiful moment in
+Maltese football!
+Pitchside coverage, 90 minutes, full
+gallery in 24 hours.
+Passionate sports photography that captures every
+moment that matters!
+
+-- 17 of 21 --
+
+✅ Do 	❌ Avoid
+Featured in the Times of Malta press
+archive.
+Award-winning, internationally recognised
+photojournalism.
+Three sports. Four federations. One
+season.
+Bringing your sports memories to life through the
+magic of photography.
+Tone register
+The voice should sit roughly where a sports columnist's voice sits — confident,
+observational, sport-fluent, with restraint. Not hype-y like a brand promotion, not cold like
+a corporate spec sheet, not florid like wedding photography copy.
+8. Quick reference
+Identity
+Element 	Value
+Business name 	NF Photography
+Personal / credit
+name
+Nicholas Falzon
+Tagline 	Pitchside, poolside, trackside.
+Supporting line 	Sport, captured properly.
+Values 	Craft · Speed · Range · Trust
+
+-- 18 of 21 --
+
+Element 	Value
+Personality 	A sports photojournalist who takes the work seriously and knows how to
+get it done
+Primary sports 	Football, Futsal, Motorsport, Waterpolo
+Market 	Malta + occasional regional travel
+Positioning tier 	Mid-tier professional
+Visual
+Element 	Value
+Logo 	NF monogram with four-corner symmetric frame brackets
+Foundation black 	#0A0A0A
+Brand teal 	#14B8A6
+Brand navy 	#1E3A8A
+Heading font 	Space Grotesk (variable, 400–700)
+Body font 	Inter (variable, 400–700)
+Type scale 	1.25 modular (minor third), base 16px
+Border-radius (cards) 	8px
+Border-radius (buttons) 	6px
+
+-- 19 of 21 --
+
+The complete asset kit
+File 	Contains
+NF-Photography-Brand-Guidelines.pdf 	Designed PDF version of this document
+NF-Photography-Brand-Brief.md 	Detailed brand brief (markdown)
+nf-logo-with-frame-a-symmetric.png 	Master logo · 520×520 raster
+nf-frame-brackets-overlay.svg 	Brackets-only · drop onto your vector logo file
+nf-color-system.css 	Full colour token system · light + dark mode
+nf-color-system-docs.md 	Colour usage documentation
+nf-typography.css 	Typography tokens, base styles, fonts
+nf-typography-docs.md 	Typography usage documentation
+nf-buttons.css 	Button component spec
+nf-buttons-docs.md 	Button component documentation
+What's intentionally absent from this system
+A few deliberate omissions, because constraints make a brand:
+No blue or purple in the palette. Teal + navy already cover the cool spectrum. A third
+cool colour dilutes the editorial feel.
+No third accent colour beyond teal and navy. Two is the limit for harmony.
+
+-- 20 of 21 --
+
+No serif body type. Editorial headings in serif can work; editorial body in serif feels
+old-fashioned for a digital-first brand in 2026.
+No condensed display fonts (Bebas Neue etc.) common in sport branding — they feel
+"marketing" rather than "editorial."
+No teal or navy CTA buttons. Brand colours are for brand moments, not for asking the
+user to click.
+No drop shadows, glows, or scale transforms anywhere in the system. Quiet motion
+only. Photojournalist brands don't bounce.
+Final note
+This is a working document. The brand will change as the work changes. When something
+written here stops being true, update the document — don't keep the work consistent with
+an outdated rule.
+The goal is always the same: serious sport photojournalism, properly delivered.
+
+-- 21 of 21 --
+

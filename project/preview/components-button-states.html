@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Button states</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: 70px repeat(5, 1fr); gap: 8px; align-items: center; }
+  .lbl { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; }
+  .h { text-align: center; }
+  button {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    line-height: 1;
+    width: 100%;
+  }
+  /* primary */
+  .p-default { background: #0A0A0A; color: #fff; }
+  .p-hover { background: #262626; color: #fff; }
+  .p-active { background: #171717; color: #fff; }
+  .p-focus { background: #0A0A0A; color: #fff; outline: 2px solid #0F766E; outline-offset: 2px; }
+  .p-disabled { background: #0A0A0A; color: #fff; opacity: 0.4; cursor: not-allowed; }
+  /* secondary */
+  .s-default { background: transparent; color: #0A0A0A; border-color: #D4D4D4; }
+  .s-hover { background: #F5F5F5; color: #0A0A0A; border-color: #D4D4D4; }
+  .s-active { background: #E5E5E5; color: #0A0A0A; border-color: #A3A3A3; }
+  .s-focus { background: transparent; color: #0A0A0A; border-color: #D4D4D4; outline: 2px solid #0F766E; outline-offset: 2px; }
+  .s-disabled { background: transparent; color: #0A0A0A; border-color: #D4D4D4; opacity: 0.4; cursor: not-allowed; }
+  /* ghost */
+  .g-default { background: transparent; color: #404040; }
+  .g-hover { background: #FAFAFA; color: #171717; }
+  .g-active { background: #F5F5F5; color: #171717; }
+  .g-focus { background: transparent; color: #404040; outline: 2px solid #0F766E; outline-offset: 2px; }
+  .g-disabled { background: transparent; color: #404040; opacity: 0.4; cursor: not-allowed; }
+</style>
+</head><body>
+<div class="card-root">
+  <div class="grid">
+    <span></span>
+    <span class="lbl h">Default</span>
+    <span class="lbl h">Hover</span>
+    <span class="lbl h">Active</span>
+    <span class="lbl h">Focus</span>
+    <span class="lbl h">Disabled</span>
+
+    <span class="lbl">Primary</span>
+    <button class="p-default">Book</button>
+    <button class="p-hover">Book</button>
+    <button class="p-active">Book</button>
+    <button class="p-focus">Book</button>
+    <button class="p-disabled">Book</button>
+
+    <span class="lbl">Secondary</span>
+    <button class="s-default">View</button>
+    <button class="s-hover">View</button>
+    <button class="s-active">View</button>
+    <button class="s-focus">View</button>
+    <button class="s-disabled">View</button>
+
+    <span class="lbl">Ghost</span>
+    <button class="g-default">Cancel</button>
+    <button class="g-hover">Cancel</button>
+    <button class="g-active">Cancel</button>
+    <button class="g-focus">Cancel</button>
+    <button class="g-disabled">Cancel</button>
+  </div>
+</div>
+</body></html>

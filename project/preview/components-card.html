@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card {
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .card .img {
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0) 60%, rgba(10,10,10,.6) 100%),
+      linear-gradient(135deg, #0F766E 0%, #1E3A8A 100%);
+    position: relative;
+  }
+  .card.b .img {
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0) 50%, rgba(10,10,10,.7) 100%),
+      linear-gradient(135deg, #262626 0%, #0A0A0A 100%);
+  }
+  .card .body { padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.075em; text-transform: uppercase; color: #0F766E; }
+  .title { font-family: var(--font-heading); font-size: 16px; font-weight: 600; color: #0A0A0A; letter-spacing: -0.01em; line-height: 1.2; margin: 0; }
+  .meta { font-size: 12px; color: #737373; }
+</style>
+</head><body>
+<div class="card-root">
+  <div class="grid">
+    <article class="card a">
+      <div class="img"></div>
+      <div class="body">
+        <span class="eyebrow">Match · Football</span>
+        <h3 class="title">Hibernians 1–1 Floriana</h3>
+        <span class="meta">Premier League · 78th minute equaliser</span>
+      </div>
+    </article>
+    <article class="card b">
+      <div class="img"></div>
+      <div class="body">
+        <span class="eyebrow">Press · Waterpolo</span>
+        <h3 class="title">Behind the lane line</h3>
+        <span class="meta">Times of Malta · season feature</span>
+      </div>
+    </article>
+  </div>
+  <div class="note">1px hairline border, 8px radius, 16px padding, no shadow. Image header (16:9) is optional.</div>
+</div>
+</body></html>

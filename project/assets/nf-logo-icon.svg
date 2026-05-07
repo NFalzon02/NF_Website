@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="NF">
+  <g fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="square">
+    <path d="M60 130 V60 H130"></path>
+    <path d="M390 60 H460 V130"></path>
+    <path d="M60 390 V460 H130"></path>
+    <path d="M390 460 H460 V390"></path>
+  </g>
+  <g fill="currentColor" font-family="&#39;Space Grotesk&#39;, ui-sans-serif, sans-serif" font-weight="700">
+    <text x="260" y="320" text-anchor="middle" font-size="220" letter-spacing="-8">NF</text>
+  </g>
+</svg>

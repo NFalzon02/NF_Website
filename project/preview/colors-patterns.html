@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Usage patterns</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .pat { border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); height: 200px; display: flex; flex-direction: column; }
+  .pat .body { flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+  .pat .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.075em; text-transform: uppercase; }
+  .pat h4 { font-family: var(--font-heading); font-size: 18px; font-weight: 600; margin: 0; line-height: 1.15; letter-spacing: -0.015em; }
+  .pat .footer { font-size: 11px; padding: 8px 12px; background: var(--color-bg-subtle); color: var(--color-text-muted); border-top: 1px solid var(--color-border); }
+
+  .p1 .body { background: #FFF; color: #171717; }
+  .p1 .tag { color: #0F766E; }
+
+  .p2 .body { background: #FFF; }
+  .p2 .tag { color: #0F766E; }
+  .p2 h4 { color: #1E3A8A; }
+  .p2 p { color: #404040; font-size: 12px; line-height: 1.5; margin: 0; }
+
+  .p3 .body { background: #1E3A8A; color: #fff; }
+  .p3 .tag { color: #2DD4BF; }
+</style>
+</head><body>
+<div class="card-root">
+  <div class="grid">
+    <div class="pat p1">
+      <div class="body">
+        <span class="tag">Pattern 01</span>
+        <h4>Match-day gallery</h4>
+      </div>
+      <div class="footer">Default · black on white, teal accent</div>
+    </div>
+    <div class="pat p2">
+      <div class="body">
+        <span class="tag">About · Editorial</span>
+        <h4>Behind the lane line.</h4>
+        <p>A season covering Maltese waterpolo, filed on a journalist's deadline.</p>
+      </div>
+      <div class="footer">Editorial · navy heading, teal eyebrow</div>
+    </div>
+    <div class="pat p3">
+      <div class="body">
+        <span class="tag">Press · Featured</span>
+        <h4>Times of Malta, 2025/26 season.</h4>
+      </div>
+      <div class="footer">Feature · navy section, light teal accent</div>
+    </div>
+  </div>
+</div>
+</body></html>

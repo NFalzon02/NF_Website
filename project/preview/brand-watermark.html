@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Watermark</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px; }
+  .frame {
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0) 30%, rgba(10,10,10,0.65) 100%),
+      linear-gradient(135deg, #0A0A0A 0%, #134E4A 50%, #1E3A8A 100%);
+  }
+  .wm {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    opacity: 0.55;
+    filter: invert(1);
+  }
+  .caption {
+    position: absolute;
+    left: 18px;
+    bottom: 14px;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .caption .eb { display: block; font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 0.075em; text-transform: uppercase; color: #2DD4BF; margin-bottom: 3px; }
+</style>
+</head><body>
+<div class="card-root">
+  <div class="frame">
+    <div class="caption">
+      <span class="eb">Match · Football</span>
+      Equaliser, 78th minute.
+    </div>
+    <img class="wm" src="../assets/nf-logo-icon.svg" alt="">
+  </div>
+  <div class="note">Watermark: icon-only NF + brackets · bottom-right · 2–4% of image width · low-opacity white.</div>
+</div>
+</body></html>

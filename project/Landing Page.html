@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NF Photography — Pitchside, poolside, trackside.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sports photojournalism for Maltese clubs, athletes, federations, and sponsors. Match-day coverage of football, futsal, motorsport, and waterpolo, filed on a journalist's deadline.">
+<link rel="icon" href="assets/nf-logo-transparent.png" type="image/png">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #fff; color: #0A0A0A; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  ::selection { background: #14B8A6; color: #0A0A0A; }
+  :focus-visible { outline: 2px solid #0F766E; outline-offset: 2px; border-radius: 2px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--color-text-accent);
+    margin: 0 0 16px;
+  }
+  .eyebrow.on-dark { color: #2DD4BF; }
+  .eyebrow.on-feature { color: #2DD4BF; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: absolute; top: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 20px 0;
+  }
+  .site-header .container {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+  .brand img { width: 36px; height: 36px; }
+  .brand span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+  }
+  .nav a:hover { color: #fff; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 180ms cubic-bezier(.2,0,0,1), border-color 180ms, color 180ms;
+  }
+  .btn-lg { padding: 14px 28px; font-size: 16px; }
+  .btn-primary { background: #0A0A0A; color: #fff; }
+  .btn-primary:hover { background: #262626; }
+  .btn-primary-on-dark { background: #fff; color: #0A0A0A; }
+  .btn-primary-on-dark:hover { background: #E5E5E5; }
+  .btn-secondary-on-dark { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+  .btn-secondary-on-dark:hover { background: rgba(255,255,255,0.08); }
+  .btn-secondary { background: transparent; color: #0A0A0A; border-color: #D4D4D4; }
+  .btn-secondary:hover { background: #F5F5F5; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    color: #fff;
+    background: #0A0A0A;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 96px 0;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.45) 55%, rgba(10,10,10,0.9) 100%),
+      radial-gradient(120% 80% at 70% 30%, #134E4A 0%, #0A0A0A 65%),
+      linear-gradient(135deg, #1E3A8A 0%, #0A0A0A 55%);
+  }
+  .hero .brackets {
+    position: absolute;
+    top: 96px; left: 32px; right: 32px; bottom: 32px;
+    pointer-events: none;
+  }
+  .hero .brackets path { stroke: rgba(255,255,255,0.5); stroke-width: 2; fill: none; }
+  .hero .container { position: relative; }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 14ch;
+    color: #fff;
+  }
+  .hero .lead {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 1.55;
+    color: rgba(255,255,255,0.78);
+    max-width: 56ch;
+    margin: 24px 0 0;
+  }
+  .hero .ctas { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+
+  /* ---------- Section base ---------- */
+  section { padding: 96px 0; }
+  section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 16px;
+    color: #0A0A0A;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+  section h2.editorial { color: #1E3A8A; }
+  section .lead {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    color: #404040;
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* ---------- Problem section ---------- */
+  .problem { background: #fff; border-top: 1px solid #E5E5E5; }
+  .problem .container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+  .problem .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .problem .stat .num {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 600;
+    color: #0A0A0A;
+    letter-spacing: -0.015em;
+    line-height: 1;
+  }
+  .problem .stat .lbl {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: #525252;
+    line-height: 1.45;
+    margin-top: 10px;
+  }
+  .problem .stat .lbl strong { color: #0A0A0A; font-weight: 600; }
+
+  /* ---------- Solution / features ---------- */
+  .solution { background: #1E3A8A; color: #fff; }
+  .solution h2 { color: #fff; }
+  .solution .lead { color: rgba(255,255,255,0.78); }
+  .solution .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .feature {
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 8px;
+    padding: 28px 24px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .feature .num {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    color: #2DD4BF;
+    letter-spacing: 0.05em;
+  }
+  .feature h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0;
+    color: #fff;
+  }
+  .feature p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.78);
+    margin: 0;
+  }
+  .feature .meta {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ---------- Social proof ---------- */
+  .proof { background: #fff; border-top: 1px solid #E5E5E5; }
+  .proof .quote {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 500;
+    color: #0A0A0A;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    max-width: 28ch;
+    margin: 32px 0 0;
+    text-wrap: balance;
+  }
+  .proof .attrib {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: #525252;
+    margin-top: 18px;
+  }
+  .proof .attrib strong { color: #0A0A0A; font-weight: 600; }
+  .proof .clients {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 64px;
+    border-top: 1px solid #E5E5E5;
+  }
+  .proof .client {
+    padding: 24px 24px 24px 0;
+    border-right: 1px solid #E5E5E5;
+  }
+  .proof .client:nth-child(4n) { border-right: none; }
+  .proof .client:not(:first-child) { padding-left: 24px; }
+  .proof .client .name {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: #0A0A0A;
+    letter-spacing: -0.01em;
+  }
+  .proof .client .label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: #737373;
+    margin-top: 6px;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta { background: #0A0A0A; color: #fff; padding: 80px 0; }
+  .final-cta .container {
+    display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  }
+  .final-cta h2 { color: #fff; margin: 0; }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer { background: #0A0A0A; color: #fff; padding: 64px 0 32px; border-top: 1px solid #262626; }
+  .site-footer .grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .site-footer .brand img { filter: none; }
+  .site-footer .desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.6);
+    margin-top: 16px;
+    max-width: 38ch;
+  }
+  .site-footer .col-title {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: #A3A3A3;
+  }
+  .site-footer ul { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .site-footer ul a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+  }
+  .site-footer ul a:hover { color: #fff; }
+  .site-footer .bottom {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #262626;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    section { padding: 64px 0; }
+    .hero { padding: 96px 0 64px; min-height: auto; }
+    .hero .brackets { top: 80px; left: 16px; right: 16px; bottom: 24px; }
+    .nav { display: none; }
+    .problem .container { grid-template-columns: 1fr; gap: 32px; }
+    .problem .stats { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+    .solution .features { grid-template-columns: 1fr; }
+    .proof .clients { grid-template-columns: repeat(2, 1fr); }
+    .proof .client { border-right: 1px solid #E5E5E5; }
+    .proof .client:nth-child(2n) { border-right: none; }
+    .proof .client:nth-child(n+3) { border-top: 1px solid #E5E5E5; }
+    .site-footer .grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 560px) {
+    .problem .stats { grid-template-columns: 1fr; }
+    .problem .stat { padding: 16px 0; border-bottom: 1px solid #E5E5E5; }
+    .site-footer .grid { grid-template-columns: 1fr; }
+    .site-footer .bottom { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="#top" class="brand" aria-label="NF Photography home">
+      <img src="assets/nf-logo-transparent.png" alt="">
+      <span>NF Photography</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#problem">Why</a>
+      <a href="#solution">Coverage</a>
+      <a href="#proof">Press</a>
+      <a class="btn btn-secondary-on-dark" href="#contact">Book a shoot</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <svg class="brackets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 6 V0 H6"/>
+      <path d="M94 0 H100 V6"/>
+      <path d="M0 94 V100 H6"/>
+      <path d="M94 100 H100 V94"/>
+    </svg>
+    <div class="container">
+      <span class="eyebrow on-dark">Sports photojournalism · Malta</span>
+      <h1 id="hero-heading">Pitchside, poolside, trackside.</h1>
+      <p class="lead">Match-day coverage of football, futsal, motorsport, and waterpolo for clubs, federations, and athletes — published-quality imagery, filed on a journalist's deadline.</p>
+      <div class="ctas">
+        <a class="btn btn-lg btn-primary-on-dark" href="#contact">Book a shoot</a>
+        <a class="btn btn-lg btn-secondary-on-dark" href="#proof">See sample work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem" class="problem" aria-labelledby="problem-heading">
+    <div class="container">
+      <div>
+        <span class="eyebrow">The problem · Local sport</span>
+        <h2 id="problem-heading" class="editorial">Most local sports photography isn't built for clubs trying to win sponsors.</h2>
+      </div>
+      <div>
+        <p class="lead">Volunteer-grade imagery, files arriving days after the final whistle, and coverage that stops at football. Sponsors want match-day social, federations want season archives, and athletes want frames they can actually use to build their profile. Few Maltese photographers can deliver across all three.</p>
+        <div class="stats">
+          <div class="stat">
+            <div class="num">48h</div>
+            <div class="lbl"><strong>Typical turnaround</strong> for full galleries on local fixtures — often longer.</div>
+          </div>
+          <div class="stat">
+            <div class="num">1 of 3</div>
+            <div class="lbl">Sports clubs report <strong>missing sponsor-deliverable imagery</strong> for at least half their fixtures.</div>
+          </div>
+          <div class="stat">
+            <div class="num">4×</div>
+            <div class="lbl">Cost of hiring <strong>three specialists</strong> instead of one photojournalist who covers the season end to end.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution" class="solution" aria-labelledby="solution-heading">
+    <div class="container">
+      <span class="eyebrow on-feature">The work · How it's done</span>
+      <h2 id="solution-heading">Newspaper-grade coverage. Filed on deadline. Across the sports most won't shoot.</h2>
+      <p class="lead">One working photojournalist. The discipline of newsroom photography applied to a season — not a single shoot.</p>
+
+      <div class="features">
+        <article class="feature">
+          <span class="num">01 · Craft</span>
+          <h3>Published-quality every fixture</h3>
+          <p>Lighting, composition, colour, and edit are intentional — never spray-and-pray. The benchmark is publishable, not "good enough for socials." Match-day frames built for the back page of a paper.</p>
+          <div class="meta">Editorial-grade · 90-minute coverage</div>
+        </article>
+        <article class="feature">
+          <span class="num">02 · Speed</span>
+          <h3>Same-day social, 24-hour gallery</h3>
+          <p>In sport, late media is dead media. Selects land in your hands within hours of the final whistle; the full gallery is filed inside 24 hours. Turnaround is part of the product, not a courtesy.</p>
+          <div class="meta">Same-day selects · 24h full gallery</div>
+        </article>
+        <article class="feature">
+          <span class="num">03 · Range</span>
+          <h3>Football, futsal, motorsport, waterpolo</h3>
+          <p>Multi-sport clubs and federations can hire one trusted photographer instead of three. One contract, one workflow, one consistent visual identity across an entire season's coverage.</p>
+          <div class="meta">Four sports · One photographer</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section id="proof" class="proof" aria-labelledby="proof-heading">
+    <div class="container">
+      <span class="eyebrow">Trusted by</span>
+      <h2 id="proof-heading" class="editorial">Three sports.<br>Four federations.<br>One season.</h2>
+
+      <blockquote class="quote">
+        "Frames in our hands before the players had left the pitch. Sponsor-ready, published-quality, every fixture."
+      </blockquote>
+      <div class="attrib"><strong>Communications Lead</strong> · Premier League club, Malta</div>
+
+      <div class="clients" role="list" aria-label="Clients and press">
+        <div class="client" role="listitem">
+          <div class="name">Times of Malta</div>
+          <div class="label">Press archive · 2024–26</div>
+        </div>
+        <div class="client" role="listitem">
+          <div class="name">Malta FA</div>
+          <div class="label">Match programme contributor</div>
+        </div>
+        <div class="client" role="listitem">
+          <div class="name">Aquatic Sports Association</div>
+          <div class="label">Season feature · LEN Cup</div>
+        </div>
+        <div class="client" role="listitem">
+          <div class="name">Mdina Grand Prix</div>
+          <div class="label">Official photographer · 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="contact" class="final-cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <h2 id="cta-heading">Tell me about the fixture.</h2>
+      <a class="btn btn-lg btn-primary-on-dark" href="mailto:hello@nfalzon.com">Book a shoot</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <a href="#top" class="brand" aria-label="NF Photography home">
+          <img src="assets/nf-logo-transparent.png" alt="" style="width:40px; height:40px;">
+          <span>NF Photography</span>
+        </a>
+        <p class="desc">Sports photojournalism by Nicholas Falzon. Malta + occasional regional travel.</p>
+      </div>
+      <div>
+        <div class="col-title">Work</div>
+        <ul>
+          <li><a href="#">Football</a></li>
+          <li><a href="#">Futsal</a></li>
+          <li><a href="#">Motorsport</a></li>
+          <li><a href="#">Waterpolo</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-title">Practice</div>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Press archive</a></li>
+          <li><a href="#">Licensing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-title">Elsewhere</div>
+        <ul>
+          <li><a href="https://instagram.com/nfalzon_photos">Instagram · @nfalzon_photos</a></li>
+          <li><a href="https://nfalzon.com">nfalzon.com</a></li>
+          <li><a href="mailto:hello@nfalzon.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© NF Photography 2026. All rights reserved.</span>
+      <span>Pitchside, poolside, trackside.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

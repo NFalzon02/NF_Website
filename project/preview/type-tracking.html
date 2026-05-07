@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Tracking &amp; leading</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--color-border); }
+  th { font-family: var(--font-body); font-weight: 600; color: var(--color-text-muted); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+  td.token { font-family: ui-monospace, monospace; color: var(--color-text); }
+  td.val { font-family: ui-monospace, monospace; color: var(--color-text-subtle); }
+  td.use { color: var(--color-text-muted); }
+</style>
+</head><body>
+<div class="card-root">
+  <table>
+    <thead>
+      <tr><th>Token</th><th>Value</th><th>Used on</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="token">--leading-tight</td><td class="val">1.1</td><td class="use">Display, h1, h2</td></tr>
+      <tr><td class="token">--leading-snug</td><td class="val">1.25</td><td class="use">h3 → h6</td></tr>
+      <tr><td class="token">--leading-normal</td><td class="val">1.5</td><td class="use">Body, lead</td></tr>
+      <tr><td class="token">--tracking-tighter</td><td class="val">-0.025em</td><td class="use">Display, h1</td></tr>
+      <tr><td class="token">--tracking-tight</td><td class="val">-0.015em</td><td class="use">h2, h3</td></tr>
+      <tr><td class="token">--tracking-wide</td><td class="val">0.075em</td><td class="use">Eyebrow / overline</td></tr>
+    </tbody>
+  </table>
+  <div class="note">Principle: as text gets bigger, tracking gets tighter and line-height gets shorter.</div>
+</div>
+</body></html>

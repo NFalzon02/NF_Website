@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Logos</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .tile { border-radius: 8px; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; padding: 22px; overflow: hidden; }
+  .tile.dark { background: #0A0A0A; }
+  .tile.light { background: #fff; border: 1px solid #E5E5E5; }
+  .tile.teal { background: #14B8A6; }
+  .tile img { width: 80%; height: 80%; object-fit: contain; display: block; }
+  .cap { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; text-align: center; margin-top: 6px; }
+</style>
+</head><body>
+<div class="card-root">
+  <div>
+    <div class="grid">
+      <div class="tile dark"><img src="../assets/nf-logo-transparent.png" alt="NF Photography logo, white on dark"></div>
+      <div class="tile light"><img src="../assets/nf-logo-transparent-black.png" alt="NF Photography logo, black on light"></div>
+      <div class="tile dark"><img src="../assets/nf-logo-transparent.png" alt="NF Photography teal" style="filter: invert(58%) sepia(95%) saturate(380%) hue-rotate(130deg) brightness(95%) contrast(90%)"></div>
+    </div>
+    <div class="grid" style="margin-top:6px">
+      <div class="cap">White on dark · primary</div>
+      <div class="cap">Black on light</div>
+      <div class="cap">Single-tone teal</div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Teal &amp; Navy ramps</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 20px; }
+  .ramp-row { display: flex; align-items: center; gap: 12px; }
+  .ramp-label { width: 60px; font-family: var(--font-heading); font-size: 13px; font-weight: 600; }
+  .ramp { flex: 1; display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+  .step { aspect-ratio: 1 / 1.1; border-radius: 5px; position: relative; overflow: hidden; }
+  .step .num { position: absolute; bottom: 3px; left: 5px; font-size: 9px; font-family: ui-monospace, monospace; }
+  .step.dark .num { color: #fff; }
+  .step.light .num { color: #0A0A0A; }
+  .stack { display: flex; flex-direction: column; gap: 10px; }
+</style>
+</head><body>
+<div class="card-root">
+  <div class="stack">
+    <div class="ramp-row">
+      <div class="ramp-label">Teal</div>
+      <div class="ramp">
+        <div class="step light" style="background:#F0FDFA"><span class="num">50</span></div>
+        <div class="step light" style="background:#CCFBF1"><span class="num">100</span></div>
+        <div class="step light" style="background:#99F6E4"><span class="num">200</span></div>
+        <div class="step light" style="background:#5EEAD4"><span class="num">300</span></div>
+        <div class="step light" style="background:#2DD4BF"><span class="num">400</span></div>
+        <div class="step dark" style="background:#14B8A6"><span class="num">500</span></div>
+        <div class="step dark" style="background:#0D9488"><span class="num">600</span></div>
+        <div class="step dark" style="background:#0F766E"><span class="num">700</span></div>
+        <div class="step dark" style="background:#115E59"><span class="num">800</span></div>
+        <div class="step dark" style="background:#134E4A"><span class="num">900</span></div>
+      </div>
+    </div>
+    <div class="ramp-row">
+      <div class="ramp-label">Navy</div>
+      <div class="ramp">
+        <div class="step light" style="background:#EFF6FF"><span class="num">50</span></div>
+        <div class="step light" style="background:#DBEAFE"><span class="num">100</span></div>
+        <div class="step light" style="background:#BFDBFE"><span class="num">200</span></div>
+        <div class="step light" style="background:#93C5FD"><span class="num">300</span></div>
+        <div class="step light" style="background:#60A5FA"><span class="num">400</span></div>
+        <div class="step dark" style="background:#3B82F6"><span class="num">500</span></div>
+        <div class="step dark" style="background:#2563EB"><span class="num">600</span></div>
+        <div class="step dark" style="background:#1D4ED8"><span class="num">700</span></div>
+        <div class="step dark" style="background:#1E40AF"><span class="num">800</span></div>
+        <div class="step dark" style="background:#1E3A8A"><span class="num">900</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
