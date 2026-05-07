@@ -1,0 +1,128 @@
+/* Shared per-sport gallery styles */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #fff; color: #0A0A0A; font-family: var(--font-body); }
+a { color: inherit; }
+
+.g-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #E5E5E5;
+  font-family: var(--font-body); font-size: 13px;
+}
+.g-back { text-decoration: none; color: #0A0A0A; font-weight: 500; }
+.g-back:hover { color: #0F766E; }
+.g-book {
+  text-decoration: none; background: #0A0A0A; color: #fff;
+  padding: 8px 14px; border-radius: 999px; font-weight: 500;
+}
+.g-book:hover { background: #262626; }
+
+.g-hero {
+  max-width: 1240px; margin: 0 auto;
+  padding: 96px 32px 64px;
+}
+.g-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.075em; text-transform: uppercase;
+  color: var(--color-text-accent, #0F766E);
+  margin-bottom: 16px;
+}
+.g-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 600; letter-spacing: -0.025em; line-height: 1.0;
+  margin: 0 0 24px;
+}
+.g-lead {
+  font-family: var(--font-body); font-size: 18px; line-height: 1.55;
+  color: #404040; max-width: 60ch; margin: 0 0 32px;
+  text-wrap: pretty;
+}
+.g-meta {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  border-top: 1px solid #E5E5E5; padding-top: 24px;
+  max-width: 800px;
+}
+.g-meta li {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: #262626;
+}
+.g-meta span {
+  display: block;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.075em; text-transform: uppercase;
+  color: #737373; margin-bottom: 6px;
+}
+@media (max-width: 720px) {
+  .g-meta { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.g-grid-wrap { padding: 32px; max-width: 1400px; margin: 0 auto; }
+.g-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 8px;
+}
+.g-cell {
+  position: relative;
+  background: repeating-linear-gradient(135deg, #1a1a1a 0 14px, #161616 14px 28px);
+  border-radius: 4px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.g-cell.tall { grid-row: span 2; }
+.g-cell.wide { grid-column: span 2; }
+.g-cell span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px; letter-spacing: 0.06em; text-transform: lowercase;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.18); padding: 6px 10px; border-radius: 2px;
+}
+@media (max-width: 880px) {
+  .g-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+  .g-cell.wide { grid-column: span 2; }
+  .g-cell.tall { grid-row: span 2; }
+}
+@media (max-width: 560px) {
+  .g-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+  .g-cell.wide, .g-cell.tall { grid-column: auto; grid-row: auto; }
+}
+
+.g-cta {
+  background: #0A0A0A; color: #fff;
+  padding: 96px 32px; text-align: center;
+  margin-top: 48px;
+}
+.g-cta h2 {
+  font-family: var(--font-heading); font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
+  margin: 0 0 16px;
+}
+.g-cta p {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+  color: rgba(255,255,255,0.7); margin: 0 0 32px;
+  max-width: 60ch; margin-left: auto; margin-right: auto;
+}
+.g-cta .btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; font-size: 16px;
+  font-family: var(--font-body); font-weight: 500;
+  background: #fff; color: #0A0A0A;
+  border-radius: 999px; text-decoration: none;
+  transition: background 160ms;
+}
+.g-cta .btn:hover { background: #F5F5F5; }
+
+.g-footer {
+  background: #0A0A0A; color: rgba(255,255,255,0.6);
+  padding: 32px; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  border-top: 1px solid #1a1a1a;
+  font-family: var(--font-body); font-size: 13px;
+}
+.g-footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.g-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.g-footer a:hover { color: #fff; }

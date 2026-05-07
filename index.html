@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NF Photography — Pitchside, poolside, trackside.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sports photojournalism for Maltese clubs, athletes, federations, and sponsors. Match-day coverage across a wide range of sports, filed on a journalist's deadline.">
+<meta property="og:title" content="NF Photography — Pitchside, poolside, trackside.">
+<meta property="og:description" content="Sports photojournalism for Maltese clubs, athletes, federations, and sponsors.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/nf-logo-transparent.png" type="image/png">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #fff; color: #0A0A0A; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  ::selection { background: #14B8A6; color: #0A0A0A; }
+  :focus-visible { outline: 2px solid #0F766E; outline-offset: 2px; border-radius: 2px; }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase;
+    color: var(--color-text-accent);
+    margin: 0 0 16px;
+  }
+  .eyebrow.on-dark, .eyebrow.on-feature { color: #2DD4BF; }
+
+  /* ---------- Reveal-on-scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 280ms cubic-bezier(.2,0,0,1), transform 280ms cubic-bezier(.2,0,0,1); }
+  .reveal.is-in { opacity: 1; transform: translateY(0); }
+  .reveal[data-stagger="1"] { transition-delay: 80ms; }
+  .reveal[data-stagger="2"] { transition-delay: 160ms; }
+  .reveal[data-stagger="3"] { transition-delay: 240ms; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 18px 0;
+    transition: background-color 200ms, border-color 200ms, backdrop-filter 200ms;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.is-scrolled {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: #E5E5E5;
+  }
+  .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; transition: color 200ms; }
+  .site-header.is-scrolled .brand { color: #0A0A0A; }
+  .brand img { width: 32px; height: 32px; transition: filter 200ms; }
+  .site-header.is-scrolled .brand img { filter: invert(1); }
+  .brand span {
+    font-family: var(--font-heading); font-weight: 600; font-size: 13px;
+    letter-spacing: 0.075em; text-transform: uppercase;
+  }
+  .nav { display: flex; align-items: center; gap: 24px; }
+  .nav a {
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    transition: color 180ms;
+  }
+  .nav a:hover { color: #fff; }
+  .site-header.is-scrolled .nav a { color: #525252; }
+  .site-header.is-scrolled .nav a:hover { color: #0A0A0A; }
+  .nav-icons { display: flex; align-items: center; gap: 14px; padding-left: 8px; border-left: 1px solid rgba(255,255,255,0.25); }
+  .site-header.is-scrolled .nav-icons { border-left-color: #E5E5E5; }
+  .nav-icons a { display: inline-flex; }
+  .nav-icons svg { width: 18px; height: 18px; }
+  .nav-cta { margin-left: 4px; }
+  @media (max-width: 720px) {
+    .nav .link { display: none; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    font-family: var(--font-body); font-weight: 500;
+    border-radius: 6px; border: 1px solid transparent;
+    cursor: pointer; line-height: 1; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; font-size: 14px;
+    transition: background-color 180ms cubic-bezier(.2,0,0,1), border-color 180ms, color 180ms;
+  }
+  .btn-lg { padding: 14px 28px; font-size: 16px; }
+  .btn-primary { background: #0A0A0A; color: #fff; }
+  .btn-primary:hover { background: #262626; }
+  .btn-primary-on-dark { background: #fff; color: #0A0A0A; }
+  .btn-primary-on-dark:hover { background: #E5E5E5; }
+  .btn-secondary-on-dark { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+  .btn-secondary-on-dark:hover { background: rgba(255,255,255,0.08); }
+  .btn-secondary { background: transparent; color: #0A0A0A; border-color: #D4D4D4; }
+  .btn-secondary:hover { background: #F5F5F5; }
+  .btn .arrow { transition: transform 180ms cubic-bezier(.2,0,0,1); }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    color: #fff;
+    background: #0A0A0A;
+    overflow: hidden;
+    display: flex; align-items: flex-end;
+    padding: 96px 0 64px;
+  }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-frame { position: absolute; inset: 0; opacity: 0; transition: opacity 1200ms cubic-bezier(.2,0,0,1); }
+  .hero-frame.is-active { opacity: 1; }
+  .hero-frame::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0.10) 0%, rgba(10,10,10,0.40) 55%, rgba(10,10,10,0.92) 100%);
+  }
+  .frame-1 { background:
+      radial-gradient(120% 80% at 70% 30%, #134E4A 0%, #0A0A0A 65%),
+      linear-gradient(135deg, #1E3A8A 0%, #0A0A0A 55%);
+  }
+  .frame-2 { background:
+      radial-gradient(110% 70% at 30% 40%, #1E3A8A 0%, #0A0A0A 65%),
+      linear-gradient(45deg, #115E59 0%, #0A0A0A 60%);
+  }
+  .frame-3 { background:
+      radial-gradient(130% 90% at 50% 60%, #262626 0%, #0A0A0A 65%),
+      linear-gradient(180deg, #134E4A 0%, #0A0A0A 70%);
+  }
+  .frame-4 { background: #0A0A0A; }
+  .frame-4 .photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .frame-4 .photo-placeholder {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg, #1a1a1a 0 14px, #161616 14px 28px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .frame-4 .photo-placeholder span {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    padding: 8px 14px; border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 2px;
+  }
+  .hero .brackets {
+    position: absolute;
+    top: 96px; left: 32px; right: 32px; bottom: 32px;
+    pointer-events: none;
+  }
+  .hero .brackets path { stroke: rgba(255,255,255,0.4); stroke-width: 2; fill: none; }
+  .hero .container { position: relative; z-index: 2; }
+  .hero-eyebrow-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .hero-eyebrow-row .label {
+    font-family: var(--font-body); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .sport-rotator {
+    display: inline-block; min-width: 130px;
+    font-family: var(--font-body); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase;
+    color: #2DD4BF;
+  }
+  .sport-rotator .word {
+    display: inline-block; opacity: 0;
+    transition: opacity 220ms cubic-bezier(.2,0,0,1);
+  }
+  .sport-rotator .word.is-active { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .sport-rotator .word { transition: none; }
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 700; line-height: 1.02; letter-spacing: -0.025em;
+    margin: 0; max-width: 14ch; color: #fff;
+  }
+  .hero .lead {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.5vw, 18px); line-height: 1.55;
+    color: rgba(255,255,255,0.78);
+    max-width: 56ch; margin: 24px 0 0;
+  }
+  .hero .ctas { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+
+  /* hero meta strip — slide indicator + scroll cue */
+  .hero-meta {
+    position: absolute; left: 32px; right: 32px; bottom: 28px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    z-index: 2;
+    font-family: var(--font-body); font-size: 11px; font-weight: 500;
+    color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .hero-dots { display: flex; gap: 6px; }
+  .hero-dots .dot {
+    width: 18px; height: 2px; background: rgba(255,255,255,0.25);
+    transition: background-color 400ms;
+  }
+  .hero-dots .dot.is-active { background: #2DD4BF; }
+  .scroll-cue { display: inline-flex; align-items: center; gap: 8px; }
+  .scroll-cue .line {
+    display: inline-block; width: 1px; height: 28px;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,0.6), transparent);
+    background-size: 100% 200%;
+    animation: scrollPulse 2400ms cubic-bezier(.2,0,0,1) infinite;
+  }
+  @keyframes scrollPulse {
+    0% { background-position: 0 -100%; }
+    100% { background-position: 0 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-cue .line { animation: none; background: rgba(255,255,255,0.3); }
+  }
+
+  /* ---------- Portfolio strip ---------- */
+  .portfolio { background: #fff; padding: 72px 0 96px; }
+  .portfolio-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+  .portfolio h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 600; letter-spacing: -0.015em; line-height: 1.1;
+    margin: 0; color: #0A0A0A; max-width: 16ch;
+  }
+  .portfolio .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .pf-card {
+    position: relative; aspect-ratio: 3 / 4;
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid #E5E5E5;
+    transition: border-color 200ms;
+    cursor: pointer;
+    display: block; color: #fff; text-decoration: none;
+  }
+  .pf-card:hover { border-color: #0A0A0A; }
+  .pf-img { position: absolute; inset: 0; }
+  .pf-img::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.05) 30%, rgba(10,10,10,0.85) 100%);
+  }
+  .pf-img.football { background: radial-gradient(120% 90% at 60% 30%, #0F766E 0%, #0A0A0A 70%); }
+  .pf-img.futsal   { background: radial-gradient(120% 90% at 30% 50%, #1E3A8A 0%, #0A0A0A 70%); }
+  .pf-img.motorsport { background: radial-gradient(120% 90% at 70% 70%, #262626 0%, #0A0A0A 70%); }
+  .pf-img.waterpolo { background: radial-gradient(120% 90% at 50% 40%, #134E4A 0%, #0A0A0A 70%); }
+
+  /* When a real photo is added, it replaces the .pf-img div with an <img> that has .pf-img on it */
+  .pf-img img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .pf-card .pf-tag {
+    position: absolute; top: 14px; left: 14px;
+    font-family: var(--font-body); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase;
+    color: #2DD4BF; z-index: 2;
+  }
+  .pf-card .pf-meta {
+    position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 2;
+  }
+  .pf-card .pf-title {
+    font-family: var(--font-heading); font-size: 17px; font-weight: 600;
+    letter-spacing: -0.01em; line-height: 1.2; margin: 0;
+  }
+  @media (max-width: 960px) { .portfolio .grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- Section base ---------- */
+  section { padding: 96px 0; }
+  section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600; line-height: 1.05; letter-spacing: -0.015em;
+    margin: 0 0 16px; color: #0A0A0A; max-width: 22ch; text-wrap: balance;
+  }
+  section .lead {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.6;
+    color: #404040; margin: 0; max-width: 60ch;
+  }
+
+  /* ---------- About me ---------- */
+  .about { background: #fff; padding: 96px 0; border-top: 1px solid #E5E5E5; }
+  .about .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+  .about-photo {
+    position: relative; aspect-ratio: 4 / 5;
+    border-radius: 8px; overflow: hidden;
+    background: #0A0A0A;
+  }
+  .about-photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .about-photo .photo-placeholder {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(135deg, #1a1a1a 0 14px, #161616 14px 28px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-photo .photo-placeholder span {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    padding: 8px 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 2px;
+  }
+  .about-copy h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
+    margin: 8px 0 24px; color: #0A0A0A;
+  }
+  .about-copy p {
+    font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+    color: #404040; margin: 0 0 16px; text-wrap: pretty;
+  }
+  .about-copy .lead { font-size: 18px; color: #262626; }
+  @media (max-width: 880px) {
+    .about .container { grid-template-columns: 1fr; gap: 32px; }
+    .about-photo { aspect-ratio: 3 / 2; }
+  }
+
+  /* ---------- Press marquee ---------- */
+  .press { background: #0A0A0A; color: #fff; padding: 64px 0 72px; overflow: hidden; }
+  .press .container { padding-bottom: 24px; }
+  .press .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .press .track {
+    display: flex; gap: 56px; align-items: center;
+    width: max-content;
+    animation: marquee 36s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .press .track { animation: none; }
+  }
+  .press .item { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
+  .press .item .pub {
+    font-family: var(--font-heading); font-size: 22px; font-weight: 600;
+    color: #fff; letter-spacing: -0.01em;
+  }
+  .press .item .lbl {
+    font-family: var(--font-body); font-size: 12px; color: #737373;
+    letter-spacing: 0.04em;
+  }
+  .press .item .dot {
+    display: inline-block; width: 4px; height: 4px; border-radius: 999px;
+    background: #2DD4BF;
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing { background: #FAFAFA; border-top: 1px solid #E5E5E5; padding: 96px 0; }
+  .pricing-head { max-width: 700px; margin-bottom: 48px; }
+  .pricing-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
+    margin: 8px 0 16px; color: #0A0A0A;
+  }
+  .pricing-head .lead {
+    font-family: var(--font-body); font-size: 17px; line-height: 1.55;
+    color: #525252; margin: 0;
+  }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .price-card {
+    background: #fff; border: 1px solid #E5E5E5; border-radius: 8px;
+    padding: 32px; display: flex; flex-direction: column; gap: 24px;
+  }
+  .price-card-feature { background: #0A0A0A; border-color: #0A0A0A; color: #fff; }
+  .price-card .price-tier {
+    font-family: var(--font-body); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase;
+    color: #0F766E;
+  }
+  .price-card-feature .price-tier { color: #2DD4BF; }
+  .price-card h3 {
+    font-family: var(--font-heading); font-size: 26px; font-weight: 600;
+    letter-spacing: -0.015em; line-height: 1.2;
+    margin: 8px 0 0; color: inherit;
+  }
+  .price-card .price {
+    display: flex; align-items: baseline; gap: 8px; margin-top: 18px;
+    font-family: var(--font-heading);
+  }
+  .price-cta-line {
+    font-family: var(--font-body); font-size: 14px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: #0F766E;
+  }
+  .price-card-feature .price-cta-line { color: #2DD4BF; }
+  .price-sub {
+    font-family: var(--font-body); font-size: 14px; line-height: 1.55;
+    color: #525252; margin: 0;
+  }
+  .price-card-feature .price-sub { color: rgba(255,255,255,0.7); }
+  .price-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .price-list li {
+    font-family: var(--font-body); font-size: 14px; line-height: 1.5;
+    color: #404040; padding-left: 22px; position: relative;
+  }
+  .price-card-feature .price-list li { color: rgba(255,255,255,0.85); }
+  .price-list li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 12px; height: 1px; background: #0F766E;
+  }
+  .price-card-feature .price-list li::before { background: #2DD4BF; }
+  .price-card .btn { align-self: flex-start; margin-top: auto; }
+  .price-card-feature .btn-primary { background: #fff; color: #0A0A0A; }
+  .price-card-feature .btn-primary:hover { background: #F5F5F5; }
+  .pricing-foot {
+    margin-top: 32px;
+    font-family: var(--font-body); font-size: 13px; color: #737373;
+    max-width: 64ch;
+  }
+  @media (max-width: 800px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Contact form ---------- */
+  .final-cta .contact-side {
+    list-style: none; padding: 0; margin: 32px 0 0;
+    display: grid; gap: 12px;
+  }
+  .final-cta .contact-side li {
+    display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: baseline;
+    font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.85);
+  }
+  .final-cta .contact-side .label {
+    font-size: 11px; letter-spacing: 0.075em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); font-weight: 600;
+  }
+  .final-cta .contact-side a { color: #2DD4BF; text-decoration: none; }
+  .final-cta .contact-side a:hover { text-decoration: underline; }
+
+  .contact-form {
+    background: #111; border: 1px solid #262626; border-radius: 10px;
+    padding: 28px;
+  }
+  .contact-form .form-fields { display: grid; gap: 16px; }
+  .contact-form .field-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .contact-form .field { display: grid; gap: 6px; }
+  .contact-form label {
+    font-family: var(--font-body); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+  .contact-form .opt {
+    font-weight: 400; text-transform: none; letter-spacing: 0;
+    color: rgba(255,255,255,0.45);
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-family: var(--font-body); font-size: 15px;
+    background: #0A0A0A; color: #fff;
+    border: 1px solid #262626; border-radius: 6px;
+    padding: 12px 14px;
+    transition: border-color 160ms;
+  }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none; border-color: #2DD4BF;
+  }
+  .contact-form textarea { resize: vertical; min-height: 96px; font-family: var(--font-body); }
+  .contact-form .btn { justify-self: flex-start; margin-top: 4px; }
+  .contact-form .form-note {
+    font-family: var(--font-body); font-size: 13px;
+    color: rgba(255,255,255,0.55); margin: 0;
+  }
+  .contact-form .form-note a { color: #2DD4BF; }
+  .contact-form .form-success h3 {
+    font-family: var(--font-heading); font-size: 22px; font-weight: 600;
+    letter-spacing: -0.01em; color: #fff; margin: 0 0 10px;
+  }
+  .contact-form .form-success p {
+    font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+    color: rgba(255,255,255,0.75); margin: 0;
+  }
+  .contact-form .form-success a { color: #2DD4BF; }
+  @media (max-width: 800px) {
+    .contact-form .field-row { grid-template-columns: 1fr; }
+    .final-cta .contact-side li { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta { background: #0A0A0A; color: #fff; padding: 120px 0; text-align: left; }
+  .final-cta .container { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+  .final-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 700; line-height: 1.02; letter-spacing: -0.025em;
+    color: #fff; margin: 0; max-width: 18ch;
+  }
+  .final-cta p { font-family: var(--font-body); font-size: 17px; line-height: 1.5; color: rgba(255,255,255,0.72); margin: 16px 0 0; }
+  @media (max-width: 800px) {
+    .final-cta .container { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer { background: #0A0A0A; color: #fff; padding: 56px 0 28px; border-top: 1px solid #1A1A1A; }
+  footer .top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; }
+  footer .col h4 {
+    font-family: var(--font-body); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase; color: #A3A3A3;
+    margin: 0 0 14px;
+  }
+  footer .col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  footer .col a {
+    font-family: var(--font-body); font-size: 13px;
+    color: rgba(255,255,255,0.78); text-decoration: none;
+  }
+  footer .col a:hover { color: #fff; }
+  footer .brand { color: #fff; }
+  footer .brand img { filter: invert(1); }
+  footer .blurb { font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.55; margin: 16px 0 0; max-width: 36ch; }
+  footer .bottom {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid #262626;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.45);
+  }
+  @media (max-width: 800px) {
+    footer .top { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ---------- Skip link ---------- */
+  .skip {
+    position: absolute; left: -9999px; top: 0;
+    background: #0A0A0A; color: #fff; padding: 10px 14px;
+    font-family: var(--font-body); font-size: 13px; z-index: 100;
+    border-radius: 0 0 6px 0;
+  }
+  .skip:focus { left: 0; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="brand" aria-label="NF Photography home">
+      <img src="assets/nf-logo-transparent.png" alt="">
+      <span>NF Photography</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="link" href="#work">Work</a>
+      <a class="link" href="#about">About</a>
+      <a class="link" href="#pricing">Pricing</a>
+      <a class="link" href="https://shop.nfalzon.com" target="_blank" rel="noopener">Shop</a>
+      <span class="nav-icons" aria-label="Contact">
+        <a href="https://www.facebook.com/NFalzonPhotos" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg>
+        </a>
+        <a href="https://instagram.com/nfalzon_photos" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+        </a>
+        <a href="mailto:nfalzonphotos@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+      </span>
+      <a class="btn btn-primary nav-cta" href="#cta">Book a shoot <span class="arrow">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-frame frame-1 is-active"></div>
+    <div class="hero-frame frame-2"></div>
+    <div class="hero-frame frame-3"></div>
+    <div class="hero-frame frame-4">
+      <!-- Replace the placeholder div below with: <img class="photo" src="photos/hero/hero-4.jpg" alt=""> -->
+      <div class="photo-placeholder"><span>Drop hero photo · 2400×1600</span></div>
+    </div>
+  </div>
+  <svg class="brackets" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path d="M0 6 V0 H6"/><path d="M94 0 H100 V6"/>
+    <path d="M0 94 V100 H6"/><path d="M94 100 H100 V94"/>
+  </svg>
+  <div class="container">
+    <div class="hero-eyebrow-row">
+      <span class="label">Sports photojournalism · Malta</span>
+      <span class="sport-rotator" aria-live="polite">
+        <span class="word is-active">Match-day</span><span class="word">Season-long</span><span class="word">On-demand</span><span class="word">Editorial</span>
+      </span>
+    </div>
+    <h1>Pitchside,<br>poolside,<br>trackside.</h1>
+    <p class="lead">Match-day coverage across the sports that move Malta — for clubs, federations, and athletes. Published-quality imagery, filed on a journalist's deadline.</p>
+    <div class="ctas">
+      <a class="btn btn-lg btn-primary-on-dark" href="#cta">Book a shoot <span class="arrow">→</span></a>
+      <a class="btn btn-lg btn-secondary-on-dark" href="#work">See sample gallery</a>
+    </div>
+  </div>
+  <div class="hero-meta" aria-hidden="true">
+    <div class="hero-dots" id="heroDots">
+      <span class="dot is-active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <span class="scroll-cue"><span>Scroll</span><span class="line"></span></span>
+  </div>
+</section>
+
+<!-- ============== SELECTED WORK ============== -->
+<section class="portfolio" id="work" aria-label="Selected work">
+  <div class="container">
+    <div class="portfolio-head">
+      <div class="reveal">
+        <span class="eyebrow">Selected work · 2025/26 season</span>
+        <h2>Three sports.<br>Four federations.<br>One season.</h2>
+      </div>
+      <a class="btn btn-secondary reveal" data-stagger="1" href="#work">Browse the full archive <span class="arrow">→</span></a>
+    </div>
+    <div class="grid">
+      <!-- To add a real photo: replace <div class="pf-img football"></div> with
+           <img class="pf-img" src="photos/work/football-cover.jpg" alt="Football match action"> -->
+      <a class="pf-card reveal" href="work/football.html">
+        <div class="pf-img football"></div>
+        <span class="pf-tag">Football</span>
+        <div class="pf-meta">
+          <h3 class="pf-title">Equaliser, 78th minute.</h3>
+        </div>
+      </a>
+      <a class="pf-card reveal" data-stagger="1" href="work/waterpolo.html">
+        <div class="pf-img waterpolo"></div>
+        <span class="pf-tag">Waterpolo</span>
+        <div class="pf-meta">
+          <h3 class="pf-title">Behind the lane line.</h3>
+        </div>
+      </a>
+      <a class="pf-card reveal" data-stagger="2" href="work/motorsport.html">
+        <div class="pf-img motorsport"></div>
+        <span class="pf-tag">Motorsport</span>
+        <div class="pf-meta">
+          <h3 class="pf-title">Qualifying, gravel.</h3>
+        </div>
+      </a>
+      <a class="pf-card reveal" data-stagger="3" href="work/futsal.html">
+        <div class="pf-img futsal"></div>
+        <span class="pf-tag">Futsal</span>
+        <div class="pf-meta">
+          <h3 class="pf-title">Two minutes, three goals.</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ABOUT ME ============== -->
+<section class="about" id="about" aria-label="About Nicholas Falzon">
+  <div class="container">
+    <div class="about-photo reveal">
+      <!-- Replace the placeholder below with: <img src="photos/about/portrait.jpg" alt="Nicholas Falzon, sports photographer"> -->
+      <div class="photo-placeholder"><span>Drop portrait · 1200×1500</span></div>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow reveal">About</span>
+      <h2 class="reveal" data-stagger="1">Nicholas Falzon —<br>working photojournalist, Malta.</h2>
+      <p class="lead reveal" data-stagger="2">I'm Nicholas Falzon, a freelance sports photographer and photojournalist based in Malta. I've spent my career on the sidelines of the beautiful game, working with professional football clubs both here at home and across Europe.</p>
+      <p class="reveal" data-stagger="3">My main goal is to make sure players and clubs walk away with the high-quality content they actually deserve. Whether I'm shooting a match-day gallery or helping a player build their personal brand, I focus on delivering sharp, impactful images that tell your story the right way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AS SEEN IN ============== -->
+<section class="press" aria-label="As seen in">
+  <div class="container">
+    <span class="eyebrow on-dark reveal">As seen in</span>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="pressTrack">
+      <!-- Populated by JavaScript below -->
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRICING ============== -->
+<section class="pricing" id="pricing" aria-label="Pricing">
+  <div class="container">
+    <div class="pricing-head reveal">
+      <span class="eyebrow">Pricing · enquire</span>
+      <h2>Two ways to work together.</h2>
+      <p class="lead">Every brief is quoted to the fixture. Tell me what you need and I'll come back the same working day with a tailored quote.</p>
+    </div>
+    <div class="pricing-grid">
+      <article class="price-card reveal">
+        <header>
+          <span class="price-tier">For Players</span>
+          <h3>Athlete portfolio.</h3>
+          <div class="price"><span class="price-cta-line">Quoted per fixture</span></div>
+          <p class="price-sub">For individual players, drivers, and swimmers building a personal media archive for sponsors, transfers, and federations.</p>
+        </header>
+        <ul class="price-list">
+          <li>Up to 90 minutes on-site at training or a designated fixture</li>
+          <li>20–30 retouched hero frames, web + print resolutions</li>
+          <li>24-hour delivery via private gallery</li>
+          <li>One social-ready edit pack (1:1 + 9:16)</li>
+        </ul>
+        <a class="btn btn-secondary" href="#contact">Enquire · Player <span class="arrow">→</span></a>
+      </article>
+      <article class="price-card price-card-feature reveal" data-stagger="1">
+        <header>
+          <span class="price-tier">For Clubs &amp; Federations</span>
+          <h3>Match-day &amp; season retainer.</h3>
+          <div class="price"><span class="price-cta-line">Quoted per fixture</span></div>
+          <p class="price-sub">For clubs and federations who need consistent match coverage, a clean archive, and imagery a sponsor will pay to use.</p>
+        </header>
+        <ul class="price-list">
+          <li>Full match coverage — warm-up to final whistle</li>
+          <li>Same-day social pack (6–10 frames) within 2 hours</li>
+          <li>Full high-resolution gallery inside 24 hours</li>
+          <li>Season retainer available — multi-fixture rate on request</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Enquire · Club <span class="arrow">→</span></a>
+      </article>
+    </div>
+    <p class="pricing-foot reveal" data-stagger="2">Federations, multi-day tournaments, and one-off editorial commissions quoted separately. Travel within Malta included; Gozo &amp; regional travel by arrangement.</p>
+  </div>
+</section>
+
+<!-- ============== CONTACT ============== -->
+<section class="final-cta" id="cta" aria-label="Get in touch">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow on-dark">Book the next fixture</span>
+      <h2>Sport,<br>captured properly.</h2>
+      <p>Reply within one working day. Match-day slots confirm 48 hours before kick-off.</p>
+      <ul class="contact-side">
+        <li><span class="label">Email</span><a href="mailto:nfalzonphotos@gmail.com">nfalzonphotos@gmail.com</a></li>
+        <li><span class="label">Instagram</span><a href="https://instagram.com/nfalzon_photos" target="_blank" rel="noopener">@nfalzon_photos</a></li>
+        <li><span class="label">Based in</span><span>Malta · Gozo by arrangement</span></li>
+      </ul>
+    </div>
+    <form
+      class="contact-form reveal"
+      id="contact"
+      data-stagger="1"
+      onsubmit="event.preventDefault(); this.querySelector('.form-success').hidden = false; this.querySelector('.form-fields').hidden = true;"
+    >
+      <div class="form-fields">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-org">Club / federation / team <span class="opt">(optional)</span></label>
+          <input id="f-org" name="org" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-sport">Sport</label>
+            <select id="f-sport" name="sport" required>
+              <option value="">Select…</option>
+              <option>Football</option>
+              <option>Futsal</option>
+              <option>Motorsport</option>
+              <option>Waterpolo</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-date">Fixture date</label>
+            <input id="f-date" name="date" type="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">Brief <span class="opt">(venue, kick-off, what you need)</span></label>
+          <textarea id="f-msg" name="message" rows="4" required></textarea>
+        </div>
+        <button class="btn btn-lg btn-primary-on-dark" type="submit">Send enquiry <span class="arrow">→</span></button>
+        <p class="form-note">Or email directly: <a href="mailto:nfalzonphotos@gmail.com">nfalzonphotos@gmail.com</a></p>
+      </div>
+      <div class="form-success" hidden>
+        <h3>Thanks — enquiry received.</h3>
+        <p>I'll reply within one working day. If your fixture is inside 72 hours, drop me a DM on <a href="https://instagram.com/nfalzon_photos" target="_blank" rel="noopener">Instagram</a> as well.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="container">
+    <div class="top">
+      <div>
+        <a href="#top" class="brand">
+          <img src="assets/nf-logo-transparent.png" alt="" width="36" height="36">
+          <span>NF Photography</span>
+        </a>
+        <p class="blurb">Sports photojournalism by Nicholas Falzon. Malta + occasional regional travel. Pitchside, poolside, trackside.</p>
+      </div>
+      <div class="col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="work/football.html">Football</a></li>
+          <li><a href="work/futsal.html">Futsal</a></li>
+          <li><a href="work/motorsport.html">Motorsport</a></li>
+          <li><a href="work/waterpolo.html">Waterpolo</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#cta">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://instagram.com/nfalzon_photos" target="_blank" rel="noopener">@nfalzon_photos</a></li>
+          <li><a href="https://www.facebook.com/NFalzonPhotos" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://shop.nfalzon.com" target="_blank" rel="noopener">shop.nfalzon.com</a></li>
+          <li><a href="mailto:nfalzonphotos@gmail.com">nfalzonphotos@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© NF Photography 2026. All rights reserved.</span>
+      <span>Pitchside, poolside, trackside.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Hero cross-fade
+  const frames = document.querySelectorAll('.hero-frame');
+  const dots   = document.querySelectorAll('#heroDots .dot');
+  let frameIdx = 0;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    setInterval(() => {
+      frames[frameIdx].classList.remove('is-active');
+      dots[frameIdx].classList.remove('is-active');
+      frameIdx = (frameIdx + 1) % frames.length;
+      frames[frameIdx].classList.add('is-active');
+      dots[frameIdx].classList.add('is-active');
+    }, 5400);
+  }
+
+  // Sport-name rotator
+  const words = document.querySelectorAll('.sport-rotator .word');
+  let wordIdx = 0;
+  if (!reduceMotion) {
+    setInterval(() => {
+      words[wordIdx].classList.remove('is-active');
+      wordIdx = (wordIdx + 1) % words.length;
+      words[wordIdx].classList.add('is-active');
+    }, 2600);
+  } else {
+    words.forEach((w, i) => w.classList.toggle('is-active', i === 0));
+  }
+
+  // Press marquee — duplicated for seamless loop
+  const pressItems = [
+    { pub: 'Times of Malta',       lbl: 'Press archive' },
+    { pub: 'MaltaToday',           lbl: 'Sport feature' },
+    { pub: 'The Malta Independent', lbl: 'Match report imagery' },
+    { pub: 'SportMalta',           lbl: 'Federation feature' },
+    { pub: 'MFA',                  lbl: 'Match programme contributor' },
+    { pub: 'ASA Malta',            lbl: 'Season feature' },
+    { pub: 'Lovin Malta',          lbl: 'Editorial' },
+    { pub: 'TVM Sport',            lbl: 'Stills credit' },
+  ];
+  const track = document.getElementById('pressTrack');
+  const renderPress = (list) => list.map((it) =>
+    `<div class="item"><span class="pub">${it.pub}</span><span class="dot"></span><span class="lbl">${it.lbl}</span></div>`
+  ).join('');
+  track.innerHTML = renderPress(pressItems) + renderPress(pressItems);
+</script>
+
+</body>
+</html>
