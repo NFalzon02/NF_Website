@@ -1166,7 +1166,31 @@
   }
   hamburgerBtn.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
   document.querySelectorAll('.mobile-link').forEach((link) => {
-    link.addEventListener('click', () => toggleMenu(false));
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        toggleMenu(false);
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }, 280);
+      } else {
+        toggleMenu(false);
+      }
+    });
+  });
+  // Also close menu when the Book a shoot CTA inside mobile menu is clicked
+  document.querySelector('.mobile-cta .btn')?.addEventListener('click', (e) => {
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      toggleMenu(false);
+      setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }, 280);
+    }
   });
 
   // ── Contact form — Formspree fetch submit ──────────────────────
