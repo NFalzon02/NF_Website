@@ -115,8 +115,16 @@
   }
   .mobile-menu a:first-child { border-top: 1px solid #1a1a1a; }
   .mobile-menu a:hover { color: #2DD4BF; }
+  .mobile-menu .mobile-cta {
+    margin-top: 32px;
+  }
+  .mobile-menu .mobile-cta .btn {
+    font-family: var(--font-body); font-size: 16px; font-weight: 500;
+    border: none; letter-spacing: normal; text-transform: none;
+    padding: 14px 28px; border-radius: 6px;
+  }
   .mobile-menu .mobile-sub {
-    display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px;
+    display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px;
   }
   .mobile-menu .mobile-sub a {
     font-family: var(--font-body); font-size: 13px; font-weight: 500;
@@ -740,7 +748,9 @@
   <a href="#about" class="mobile-link">About</a>
   <a href="#pricing" class="mobile-link">Pricing</a>
   <a href="https://shop.nfalzon.com" class="mobile-link" target="_blank" rel="noopener">Shop</a>
-  <a href="#cta" class="mobile-link">Book a shoot</a>
+  <div class="mobile-cta">
+    <a href="#cta" class="btn btn-primary-on-dark btn-lg">Book a shoot <span class="arrow">→</span></a>
+  </div>
   <div class="mobile-sub">
     <a href="https://www.facebook.com/NFalzonPhotos" target="_blank" rel="noopener">Facebook</a>
     <a href="https://instagram.com/nfalzon_photos" target="_blank" rel="noopener">Instagram</a>
@@ -783,7 +793,7 @@
     <p class="lead">Match-day coverage across the sports that move Malta — for clubs, federations, and athletes. Published-quality imagery, filed on a journalist's deadline.</p>
     <div class="ctas">
       <a class="btn btn-lg btn-primary-on-dark" href="#cta">Book a shoot <span class="arrow">→</span></a>
-      <a class="btn btn-lg btn-secondary-on-dark" href="#work">See sample gallery</a>
+      <a class="btn btn-lg btn-secondary-on-dark" href="#work">View Portfolio</a>
     </div>
     </div><!-- /hero-content -->
   </div>
