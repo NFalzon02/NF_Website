@@ -307,7 +307,7 @@
   }
   .portfolio .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
   }
   .pf-card {
@@ -351,7 +351,8 @@
     font-family: var(--font-heading); font-size: 17px; font-weight: 600;
     letter-spacing: -0.01em; line-height: 1.2; margin: 0;
   }
-  @media (max-width: 960px) { .portfolio .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 1100px) { .portfolio .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px)  { .portfolio .grid { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---------- Section base ---------- */
   section { padding: 96px 0; }
@@ -843,6 +844,11 @@
         <span class="pf-tag">Futsal</span>
         <div class="pf-view" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       </a>
+      <a class="pf-card reveal" data-stagger="3" href="work/basketball.html">
+        <div class="pf-img"><img src="photos/Basketball/hibernians_vs_starlites-6.jpg" alt="Basketball match action"></div>
+        <span class="pf-tag">Basketball</span>
+        <div class="pf-view" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      </a>
     </div>
   </div>
 </section>
@@ -960,6 +966,7 @@
               <option>Futsal</option>
               <option>Motorsport</option>
               <option>Waterpolo</option>
+              <option>Basketball</option>
               <option>Other</option>
             </select>
           </div>
@@ -1006,6 +1013,7 @@
           <li><a href="work/futsal.html">Futsal</a></li>
           <li><a href="work/motorsport.html">Motorsport</a></li>
           <li><a href="work/waterpolo.html">Waterpolo</a></li>
+          <li><a href="work/basketball.html">Basketball</a></li>
         </ul>
       </div>
       <div class="col">
