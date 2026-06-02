@@ -67,20 +67,15 @@ a { color: inherit; }
   gap: 8px;
 }
 .g-cell {
-  position: relative;
-  background: repeating-linear-gradient(135deg, #1a1a1a 0 14px, #161616 14px 28px);
   border-radius: 4px; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
 }
 .g-cell.wide { grid-column: span 2; }
 img.g-cell {
-  object-fit: cover;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  height: auto;
   display: block;
   border-radius: 4px;
 }
-img.g-cell.wide { aspect-ratio: 16 / 7; }
 @media (max-width: 880px) {
   .g-grid { grid-template-columns: repeat(2, 1fr); }
   .g-cell.wide { grid-column: span 2; }
