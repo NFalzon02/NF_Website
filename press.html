@@ -96,12 +96,19 @@
 <section class="clips" aria-label="In print">
   <div class="container">
     <div class="clips-head reveal">
-      <span class="eyebrow">In print</span>
-      <h2>Back pages.</h2>
-      <p>Full newspaper pages built around my match photography. Tap any page to read it, or open the original PDF.</p>
+      <div class="clips-head-text">
+        <span class="eyebrow">In print</span>
+        <h2>Back pages.</h2>
+        <p>Full newspaper pages built around my match photography. Tap any page to read it, or open the original PDF.</p>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" type="button" data-dir="-1" aria-controls="print-track" aria-label="Previous newspaper clippings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="carousel-btn" type="button" data-dir="1" aria-controls="print-track" aria-label="More newspaper clippings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
     </div>
-    <div class="clip-grid">
-      <article class="clip clip-print reveal">
+    <div class="carousel">
+      <div class="carousel-track" id="print-track" role="region" tabindex="0" aria-label="Clippings, scroll horizontally">
+      <article class="clip clip-print">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/print-naxxar-valletta.jpg"
                 data-cap="The Malta Independent · 29 April 2024 · Valletta relegated">
@@ -118,7 +125,7 @@
           </div>
         </div>
       </article>
-      <article class="clip clip-print reveal" data-stagger="1">
+      <article class="clip clip-print">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/print-floriana-marsaxlokk.jpg"
                 data-cap="The Malta Independent · 10 February 2025 · Last-gasp goal gives Greens precious win">
@@ -136,7 +143,7 @@
           </div>
         </div>
       </article>
-      <article class="clip clip-print reveal" data-stagger="2">
+      <article class="clip clip-print">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/print-hamrun-birkirkara.jpg"
                 data-cap="The Malta Independent · 8 April 2024 · Spartans keep up the pressure as they overcome Stripes">
@@ -153,7 +160,7 @@
           </div>
         </div>
       </article>
-      <article class="clip clip-print reveal">
+      <article class="clip clip-print">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/print-marsaxlokk-sirens.jpg"
                 data-cap="The Malta Independent · 12 February 2024 · Disappointing result for both">
@@ -170,7 +177,7 @@
           </div>
         </div>
       </article>
-      <article class="clip clip-print reveal" data-stagger="1">
+      <article class="clip clip-print">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/print-valletta-birkirkara.jpg"
                 data-cap="The Malta Independent · 10 February 2024 · Stoppage time goal gives Stripes deserved win">
@@ -188,6 +195,7 @@
           </div>
         </div>
       </article>
+      </div>
     </div>
   </div>
 </section>
@@ -196,12 +204,19 @@
 <section class="clips alt" aria-label="Online">
   <div class="container">
     <div class="clips-head reveal">
-      <span class="eyebrow">Online</span>
-      <h2>Filed the same night.</h2>
-      <p>Match reports published within hours of the final whistle. Football across the YoHealth Malta Premier, and national-team basketball.</p>
+      <div class="clips-head-text">
+        <span class="eyebrow">Online</span>
+        <h2>Filed the same night.</h2>
+        <p>Match reports published within hours of the final whistle. Football across the YoHealth Malta Premier, and national-team basketball.</p>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" type="button" data-dir="-1" aria-controls="online-track" aria-label="Previous online clippings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="carousel-btn" type="button" data-dir="1" aria-controls="online-track" aria-label="More online clippings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
     </div>
-    <div class="clip-grid">
-      <article class="clip clip-online reveal">
+    <div class="carousel">
+      <div class="carousel-track" id="online-track" role="region" tabindex="0" aria-label="Clippings, scroll horizontally">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-u16-fiba-gold.jpg"
                 data-cap="SportsDesk · 12 July 2026 · Malta U-16 girls strike gold at FIBA Europe Division C, boys selection settle for silver">
@@ -215,7 +230,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="1">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-relegation-playoffs.jpg"
                 data-cap="SportsDesk · 10 May 2026 · Premier League survival at stake as Mosta face rivals Naxxar while Tarxien face Żabbar in relegation play-offs">
@@ -229,7 +244,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="2">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-starlites-champions.jpg"
                 data-cap="SportsDesk · 5 May 2026 · Starlites crowned Malta champions after stunning season">
@@ -243,7 +258,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-naxxar-valletta-tvm.jpg"
                 data-cap="TVM Sport · 15 April 2026 · Naxxar isalvaw punt fl-aħħar mumenti kontra Valletta">
@@ -257,7 +272,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="1">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-mosta-hamrun.jpg"
                 data-cap="SportsDesk · 15 March 2026 · Mosta stun Ħamrun Spartans to secure first win in Closing Round">
@@ -271,7 +286,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="2">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-floriana-marsaxlokk.jpg"
                 data-cap="SportsDesk · 18 February 2026 · Floriana rue missed chances after Marsaxlokk stalemate">
@@ -285,7 +300,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-sliema-djuranovic.jpg"
                 data-cap="SportsDesk · 14 February 2026 · Djuranovic comes to Sliema’s rescue at the death">
@@ -299,7 +314,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="1">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-mosta-birkirkara.jpg"
                 data-cap="SportsDesk · 14 February 2026 · Mosta and Birkirkara play out drab stalemate">
@@ -313,7 +328,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="2">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-gzira-marsaxlokk.jpg"
                 data-cap="SportsDesk · 18 January 2026 · Maia the hero as Gżira United thump Marsaxlokk">
@@ -327,7 +342,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-zabbar-valletta.jpg"
                 data-cap="SportsDesk · 2 November 2025 · Żabbar St Patrick hand first defeat to Valletta to ease pressure on coach Parisi">
@@ -341,7 +356,7 @@
           </ul>
         </div>
       </article>
-      <article class="clip clip-online reveal" data-stagger="1">
+      <article class="clip clip-online">
         <button class="clip-shot" type="button"
                 data-full="photos/Newspaper/web/online-birkirkara-jubilee.jpg"
                 data-cap="SportsDesk · 17 October 2025 · Birkirkara survive scare to qualify on penalties in Jubilee Cup">
@@ -355,6 +370,7 @@
           </ul>
         </div>
       </article>
+      </div>
     </div>
   </div>
 </section>
@@ -469,6 +485,38 @@
   hamburgerBtn.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
   document.querySelectorAll('.mobile-link, .mobile-cta .btn').forEach((link) => {
     link.addEventListener('click', () => toggleMenu(false));
+  });
+
+
+  // -- Carousels --------------------------------------------------
+  document.querySelectorAll('.clips').forEach((section) => {
+    const track = section.querySelector('.carousel-track');
+    const btns  = section.querySelectorAll('.carousel-btn');
+    if (!track || !btns.length) return;
+
+    // one "page" is whatever is currently visible, minus a card's worth of overlap
+    const step = () => {
+      const card = track.querySelector('.clip');
+      const cardW = card ? card.getBoundingClientRect().width + 24 : track.clientWidth * 0.8;
+      return Math.max(cardW, Math.floor(track.clientWidth / cardW) * cardW);
+    };
+
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const slack = 4;                      // sub-pixel and snap rounding
+      btns.forEach((b) => {
+        const dir = Number(b.dataset.dir);
+        b.disabled = dir < 0 ? track.scrollLeft <= slack : track.scrollLeft >= max - slack;
+      });
+    };
+
+    btns.forEach((b) => b.addEventListener('click', () => {
+      track.scrollBy({ left: Number(b.dataset.dir) * step(), behavior: 'smooth' });
+    }));
+
+    track.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
   });
 
   // -- Lightbox --------------------------------------------------

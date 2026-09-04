@@ -219,7 +219,11 @@ a { color: inherit; }
    ========================================================================= */
 .clips { padding: 88px 0; }
 .clips.alt { background: #FAFAFA; border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; }
-.clips-head { max-width: 660px; margin-bottom: 44px; }
+.clips-head {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
+  margin-bottom: 36px;
+}
+.clips-head-text { max-width: 660px; }
 .clips-head h2 {
   font-family: var(--font-heading); font-size: clamp(28px, 3.6vw, 40px);
   font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 14px;
@@ -227,7 +231,46 @@ a { color: inherit; }
 .clips-head p { font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: #525252; }
 
 /* ---------- Clip cards ---------- */
-.clip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* ---------- Carousel ---------- */
+.carousel { position: relative; }
+.carousel-track {
+  --gap: 24px;
+  --per-view: 3.2;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* room for the card hover lift and its shadow */
+  padding: 6px 0 22px;
+  margin: -6px 0 -22px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track:focus-visible { outline: 2px solid #0F766E; outline-offset: 4px; border-radius: 10px; }
+.carousel-track > .clip {
+  flex: 0 0 calc(100% / var(--per-view) - var(--gap));
+  scroll-snap-align: start;
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { scroll-behavior: auto; }
+}
+
+.carousel-nav { display: flex; gap: 8px; flex-shrink: 0; }
+.carousel-btn {
+  width: 44px; height: 44px; border-radius: 999px;
+  background: #fff; border: 1px solid #D4D4D4; color: #0A0A0A;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background-color 180ms, border-color 180ms, color 180ms, opacity 180ms;
+}
+.carousel-btn svg { width: 20px; height: 20px; }
+.carousel-btn:hover:not(:disabled) { background: #0A0A0A; border-color: #0A0A0A; color: #fff; }
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+.clips.alt .carousel-btn { background: #FAFAFA; }
+.clips.alt .carousel-btn:hover:not(:disabled) { background: #0A0A0A; }
 
 .clip {
   display: flex; flex-direction: column;
@@ -360,7 +403,7 @@ footer .bottom {
    Responsive
    ========================================================================= */
 @media (max-width: 1000px) {
-  .clip-grid { grid-template-columns: repeat(2, 1fr); }
+  .carousel-track { --per-view: 2.2; }
 }
 @media (max-width: 800px) {
   footer .top { grid-template-columns: 1fr 1fr; }
@@ -373,7 +416,8 @@ footer .bottom {
   .page-hero { padding: 140px 0 64px; }
   .clips { padding: 64px 0; }
   .final-cta { padding: 72px 0; }
-  .clip-grid { grid-template-columns: 1fr; gap: 20px; }
+  .carousel-track { --per-view: 1.15; --gap: 16px; }
+  .clips-head { flex-direction: column; align-items: flex-start; gap: 20px; }
   .cta-actions .btn { flex: 1 1 100%; justify-content: center; }
   .lightbox { padding: 64px 12px 48px; }
 }
