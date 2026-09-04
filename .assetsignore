@@ -1,6 +1,10 @@
 # Files in this repo that should NOT be published to nfalzon.com.
 # wrangler reads this from the assets directory (assets.directory = "." in wrangler.jsonc).
 
+# Git internals. The pack file is far over Cloudflare's 25 MiB per-asset limit,
+# which fails the whole build.
+.git
+
 # Build tooling, never part of the site
 node_modules
 package.json
