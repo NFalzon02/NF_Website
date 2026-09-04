@@ -1,0 +1,20 @@
+# Files in this repo that should NOT be published to nfalzon.com.
+# wrangler reads this from the assets directory (assets.directory = "." in wrangler.jsonc).
+
+# Build tooling, never part of the site
+node_modules
+package.json
+package-lock.json
+wrangler.jsonc
+process_logos.py
+.assetsignore
+.gitignore
+.claude
+README.md
+
+# Internal drafts and working notes
+project
+chats
+
+# Source screenshots, superseded by the web-sized JPEGs in photos/Newspaper/web/
+photos/Newspaper/Screenshot*.png
