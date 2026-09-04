@@ -247,7 +247,6 @@ a { color: inherit; }
   display: block;
 }
 .clip-print .clip-shot { aspect-ratio: 4 / 5; }
-.clip-print .clip-shot.wide { aspect-ratio: 16 / 13; }
 .clip-online .clip-shot { aspect-ratio: 16 / 10; }
 .clip-shot::after {
   content: "View";
