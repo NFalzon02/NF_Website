@@ -4,3 +4,9 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# macOS
+.DS_Store
+
+# local dev
+.claude/launch.json
