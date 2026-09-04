@@ -195,7 +195,7 @@ a { color: inherit; }
   background: #0A0A0A; border-bottom: 1px solid #1A1A1A;
   padding: 0;
 }
-.stats .container { display: grid; grid-template-columns: repeat(3, 1fr); }
+.stats .container { display: grid; grid-template-columns: repeat(2, 1fr); }
 .stat { padding: 32px 0; }
 .stat + .stat { border-left: 1px solid #1A1A1A; padding-left: 32px; }
 .stat dt {
@@ -280,11 +280,6 @@ a { color: inherit; }
 }
 .clip-meta li .k { color: #A3A3A3; }
 .clip-foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.clip-credit {
-  font-family: var(--font-body); font-size: 12px; font-weight: 500;
-  color: #0F766E; background: #F0FDFA; border: 1px solid #CCFBF1;
-  border-radius: 999px; padding: 5px 11px;
-}
 .clip-pdf {
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   color: #525252; text-decoration: none;
